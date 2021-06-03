@@ -23,7 +23,7 @@ sockets, one for the Blue Pill, one for the S2, one for the optional Midifeather
 - Only one additional chip required - a GAL22V10 programmed as an address decoder. The Blue Bill does not have enough 5V-compatible GPIO ports to do the
 decoding fully in sofware
 - Everything else is done purely in software - unlike LampdaSpeak, no additional glue logic is required to manage the databus (e.g., no flip flop to latch 
-the databus upon IOWRITE requests, or busdriver to tristate the microcontroller output to the bus upon IOREAD requests). The 72 MHz Blue Pill is fast enough to respond to and manage IO requests and the databus via ISRs (Interupt Service Routines), also tuning to get the timing right was tedious - but it works!
+the databus upon IOWRITE requests, or busdriver to tristate the microcontroller output to the bus upon IOREAD requests). The 72 MHz Blue Pill is fast enough to respond to and manage IO requests and the databus via ISRs (Interupt Service Routines). It was tedious to get the timing of the ISRs right (done by inserting ``__asm__("nop")`` at the right placed), but it works!
 - no extra circuitry for Z80 /WAIT managment 
 - Low costs - final PCB will be in the 50 to 60 ¤ range 
 - Very DIY friendly (no SMD, plug and play of standard modules)
