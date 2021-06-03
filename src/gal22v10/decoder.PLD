@@ -1,0 +1,62 @@
+Name     CPC Blue Pill ;
+PartNo   00 ;
+Date     27.05.2021 ;
+Revision 01 ;
+Designer Michael Wessel / LambdaMikel ;
+Company  Home ;
+Assembly None ;
+Location  ;
+Device   g22v10 ;
+
+
+/**  Inputs  **/
+
+PIN 1    =  adr0 ;
+PIN 2    =  adr1 ;
+PIN 3    =  adr2 ;
+PIN 4    =  adr3 ;   
+PIN 5    =  adr4 ;   
+PIN 6    =  adr5 ; 
+PIN 7    =  adr6 ;
+PIN 8    =  adr7 ; 
+PIN 9    =  adr8 ; 
+PIN 10   =  adr9 ;
+PIN 11   =  adr10 ;    
+PIN 13   =  adr11 ;  
+PIN 14   =  adr12 ; 
+PIN 15   =  adr13 ;
+PIN 16   =  adr14 ;
+PIN 17   =  adr15 ;
+
+PIN 18   =  IORQ ;
+PIN 19   =  IORD ;
+PIN 20   =  IOWR ;
+
+/* *************** OUTPUT PINS *********************/
+ 
+PIN 21 = WRITE_OUTPUT ;
+PIN 22 = READ_OUTPUT1 ; 
+PIN 23 = READ_OUTPUT2 ; 
+ 
+// &FBEE = 1111 1011 1110 1110
+
+OADR1 = adr15 & adr14 & adr13 & adr12 & 
+        adr11 & !adr10 & adr9 & adr8 & 
+        adr7 & adr6  & adr5  & !adr4 & 
+        adr3  & adr2  & adr1 & !adr0; 
+
+// &FBFE = 1111 1011 1111 1110  
+
+OADR2 = adr15 & adr14 & adr13 & adr12 & 
+        adr11 & !adr10 & adr9 & adr8 & 
+        adr7 & adr6  & adr5  &  adr4 & 
+        adr3  & adr2  & adr1 & !adr0 ;
+
+IOREQ1 =  OADR1 & ! IORQ;
+IOREQ2 =  OADR2 & ! IORQ;
+
+WRITE_OUTPUT = IOREQ1 & ! IOWR ; 
+
+READ_OUTPUT1 = IOREQ1 & ! IORD ;  
+
+READ_OUTPUT2 = IOREQ2 & ! IORD ;  
