@@ -38,11 +38,12 @@ Some YouTube videos:
 
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
 
-![Pic 1](pics/pic1.png) 
 
-![Pics/Pic 2](pics/pic2.png) 
+![Pic 2](pics/pic2.jpg) 
 
-![Pics/Pic 3](pics/pic3.png) 
+![Pic 3](pics/pic3.jpg) 
+
+![Pic 4](pics/pic4.jpg) 
 
 
 ## Latest News
