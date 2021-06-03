@@ -12,8 +12,8 @@ CPC MIDI sound + MIDI interface card.
 Features:
 
 - CPC MIDI Soundcard using the S2 GM MIDI Module from Serdashop
-- CPC can send MIDI date over output port `&FBEE` to the S2
-- MIDI DIN IN and OUT via Adadfruit Midifeather 
+- CPC can send MIDI data over output port `&FBEE` to the S2
+- MIDI IN and MIDI OUT via Adadfruit Midifeather (standard MIDI DIN sockets) 
 - MIDI IN to the CPC: check for new MIDI byte on input port `&FBFE` and fetch pending byte from buffer via `&FBEE`
 - MIDI soft through: all incoming MIDI data (from CPC or MIDI IN) can be forwarded / relayed to the MIDI OUT socket ("MIDI SOFT THRU")
 - CPC MIDI Synthesizer software in machine code (MIDI INPUT demo) 
