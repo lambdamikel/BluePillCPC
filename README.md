@@ -3,7 +3,7 @@ An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
 It's a generic IO interface to the CPC, so use cases are generic. 
 
-## Ultimate CPC MIDI Sound Card
+## The Ultimate CPC MIDI Sound & MIDI Interface Card
 
 The first application of this IO interface: using an S2 Waveblaster from
 Serdashop and an Adafruit Midifeather board to create the ultimate
@@ -38,22 +38,22 @@ Some YouTube videos:
 
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
 
-![Pic 1](pic1.png) 
+![Pic 1](pics/pic1.png) 
 
-![Pic 2](pic2.png) 
+![Pics/Pic 2](pics/pic2.png) 
 
-![Pic 3](pic3.png) 
+![Pics/Pic 3](pics/pic3.png) 
 
 
 ## Latest News
 
 - 6/1/2021: The project was featured by Matrixsynth. 
 
-![Maxrix 1](matrixsynth1.png) 
+![Maxrix 1](pics/matrixsynth1.png) 
 
-![Maxrix 2](matrixsynth3.png) 
+![Maxrix 2](pics/matrixsynth3.png) 
 
-![Maxrix 3](matrixsynth3.png) 
+![Maxrix 3](pics/matrixsynth3.png) 
 
 ## About
 
