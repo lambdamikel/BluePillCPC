@@ -37,11 +37,28 @@ Some YouTube videos:
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
 
 
-![Pic 2](pics/pic2.jpg) 
+![Pic 1](pics/breadboard2.jpg) 
 
-![Pic 3](pics/pic3.jpg) 
+![Pic 2](pics/breadboard.jpg) 
 
-![Pic 4](pics/pic4.jpg) 
+![Pic 3](pics/pic4.jpg) 
+
+## DIL Switch 
+
+----------------------------------------------
+| Switch | Explanation                       | 
+|--------|-----------------------------------|
+|   1    | Route CPC to S2                   | 
+|   2    | Route CPC to MIDI OUT             | 
+|   3    | Route MIDI IN to S2               | 
+|   4    | Route MIDI IN to MIDI OUT         | 
+|   5    | Route S2 L Channel to CPC Speaker | 
+|   6    | Route S2 R Channel to CPC Speaker | 
+|   7    | 1 = Enable card - make sure 8 = 0 | 
+|   8    | 0 = Enable card - make sure 7 = 1 | 
+----------------------------------------------
+
+
 
 
 ## Latest News
