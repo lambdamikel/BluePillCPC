@@ -63,6 +63,13 @@ Some YouTube videos:
 
 ## Latest News
 
+
+- 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
+
+![PCB 1](pics/pcb.png) 
+![PCB 2](pics/pcb2.png) 
+
+
 - 6/1/2021: The project was featured by Matrixsynth. 
 
 ![Maxrix 1](pics/matrixsynth1.png) 
