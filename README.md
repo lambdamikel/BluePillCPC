@@ -30,6 +30,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Some YouTube videos: 
 
+[First PCB Demo](https://youtu.be/ioN5ufExyvQ) 
+
 [DIN MIDI IN to CPC and CPC Synthesizer](https://youtu.be/qN9ypJHENk0)
 
 [DIN MIDI IN to S2 / General Midi MID Playback](https://youtu.be/xLs3ZQm0AvA)
