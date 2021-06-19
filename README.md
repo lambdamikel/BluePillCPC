@@ -36,6 +36,16 @@ Some YouTube videos:
 
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
 
+## Prototype PCB 
+
+![Pic PCB 1](pics/board-1.jpg) 
+![Pic PCB 2](pics/board-2.jpg) 
+![Pic PCB 3](pics/board-3.jpg) 
+![Pic PCB 4](pics/board-4.jpg) 
+![Pic PCB 5](pics/board-5.jpg) 
+
+
+## Breadboard Pics
 
 ![Pic 1](pics/breadboard2.jpg) 
 
@@ -63,6 +73,9 @@ Some YouTube videos:
 
 ## Latest News
 
+- 6/19/2021: The Prototype PCBs are working! 
+
+![Pic PCB 1](pics/board-1.jpg) 
 
 - 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
 
