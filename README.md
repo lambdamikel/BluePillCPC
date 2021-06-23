@@ -28,6 +28,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Low cost - final PCB will be in the 50 to 60 EUR range 
 - Very DIY friendly (no SMD, plug and play of standard modules)
 
+![Schematics](pics/schematics.png) 
+
 Some YouTube videos: 
 
 [First PCB Demo](https://youtu.be/ioN5ufExyvQ) 
@@ -37,6 +39,10 @@ Some YouTube videos:
 [DIN MIDI IN to S2 / General Midi MID Playback](https://youtu.be/xLs3ZQm0AvA)
 
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
+
+## First Batch Ready!
+
+![First Batch](pics/first-batch.jpg) 
 
 ## Prototype PCB 
 
@@ -74,6 +80,11 @@ Some YouTube videos:
 
 
 ## Latest News
+
+- 6/23/2021: First batch produced and sold! 
+
+![First Batch](pics/first-batch.jpg) 
+
 
 - 6/19/2021: The Prototype PCBs are working! 
 
