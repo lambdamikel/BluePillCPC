@@ -32,6 +32,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Some YouTube videos: 
 
+[Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg) 
+
 [First PCB Demo](https://youtu.be/ioN5ufExyvQ) 
 
 [DIN MIDI IN to CPC and CPC Synthesizer](https://youtu.be/qN9ypJHENk0)
@@ -80,6 +82,13 @@ Some YouTube videos:
 
 
 ## Latest News
+
+- 7/1/2021: MIDI Data Stream Recorder implemented - I can now record & play back complex GM MIDI songs from the CPC memory. The Z80 assembler source code of the [MIDI recorder & playback program are here, together with the 8 GM MID song fragments as BIN song files,](cpc/ULTMIDI2.dsk), as demonstrated here: 
+
+[Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg) 
+ 
+
+![First Batch](pics/first-batch.jpg) 
 
 - 6/23/2021: First batch produced and sold! 
 
