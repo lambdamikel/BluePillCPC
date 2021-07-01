@@ -84,6 +84,11 @@ Some YouTube videos:
 ## Latest News
 
 - 7/1/2021: MIDI Data Stream Recorder implemented - I can now record & play back complex GM MIDI songs from the CPC memory. As usual, the Z80 assembler source code of the [MIDI recorder & playback program and a number of BIN song files are in the repo](cpc/ULTMIDI2.dsk). A demo of the program and the 8 song `BIN`s is on YouTube: [Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg). I expect this kind of "MIDI data playback from CPC memory" to be the main application for the card, so most people will just use it as a MIDI sound card for their CPCs. However, unlike other MIDI sound cards, you can effortlessly create MIDI songs simply by recording the MIDI stream; hence, content / song creation for the card is literally effortless if you have a PC USB MIDI cable. 
+
+The friends from [Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html) also posted my update - thanks, guys! 
+
+![Matrixsynth New](pics/matrixsynth4.png) 
+
  
 - 6/23/2021: First batch produced and sold! 
 
