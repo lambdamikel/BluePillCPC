@@ -3,15 +3,11 @@ An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
 It's a generic IO interface to the CPC, so use cases are generic. 
  
-Test hello
-
 ## The Ultimate CPC MIDI Sound & MIDI Interface Card
 
 The first application of this IO interface: using an S2 Waveblaster from
 Serdashop and an Adafruit Midifeather board to create the ultimate
 CPC MIDI sound + MIDI interface card. 
-
-Test
 
 Features:
 
