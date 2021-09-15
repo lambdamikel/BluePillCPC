@@ -90,8 +90,8 @@ That should give you some sound from the stereo socket, and you should
 also be able to hear MIDI sound in the CPC speaker if **DIP switches 5
 and 6** are set to ON; see above for the DIP switch table.
 
-Note that, for the CPC to S2 MIDI routing to work , you must have
-**DIP switch 1** set to ON position ("Route CPC to S2").
+Note that, for the CPC to S2 MIDI routing to work, **DIP switch 1**
+must be set to ON position ("Route CPC to S2").
 
 Next, try to play the MIDI song `SONG2.BIN` from 
 
@@ -101,26 +101,25 @@ Use the `Play` option when the program starts, and see if you can hear
 Alan Parsons! See 
 [https://youtu.be/zATfSDlGLWw](https://youtu.be/zATfSDlGLWw).
 
-There are many more such "song fragments" on
+There are 8 more such "song fragments" on the
 [cpc/ULTMIDI2.dsk](cpc/ULTMIDI2.dsk). Read below to learn how you can
 record your own song fragments from a MID file being played back by
-the PC or Mac.
+the PC or Mac. 
 
-
-Next, if you have a *MIDI Sound Module or synthesizer*, you can try
-connecting it to the *MIDI OUT* socket and see if you can playback the
-same sounds / songs with this external device. Note that you must have
-**DIP switch 2** set to ON ("Route CPC to MIDI OUT"). Both switch 1
-and 2 can be ÓN at the same time. In this case, the CPC-generated MIDI
-data will be played via the connected external module, and via the S2
-(or X2GS, ... or whatever is plugged in at the S2 connector at the back
-of the card).
+Next, if you have a *MIDI sound module, keyboard or synthesizer*, you
+can try connecting it to the *MIDI OUT* socket and see if you can
+playback the same sounds / songs with this external device. Note that
+you must have **DIP switch 2** set to ON ("Route CPC to MIDI
+OUT"). Both switch 1 and 2 can be ON at the same time. In this case,
+the CPC-generated MIDI data will be played via the connected external
+module, and via the S2 (or X2GS, ... or whatever is plugged in at the
+S2 connector at the back of the card).
 
 Next, you can try *MIDI Input*. For that, you will need a *MIDI device
 that can generate MIDI data*, e.g., a synth or keyboard, or a MIDI USB
 cable and a PC / Mac program that can generate MIDI data. Some come
 with a virtual "piano keyboard" that can be used to send MIDI data.
-Or you can play back a MID file from the PC that way. 
+Or you can play back a MID file from the PC that way.
 
 Now, with the external MIDI data generating device connected to MIDI
 IN, if **DIP switch 3** is set to ON, then the firmware will
@@ -159,7 +158,9 @@ device (or MIDI USB PC cable).
 
 Any incoming MIDI Note On / Off message will be played in the CPC
 speaker; i.e., the CPC's internal AY-3-8912 soundchip now acts as a
-MIDI instrument. It is 3note polyphonic.
+MIDI instrument. It is 3note polyphonic. **Note that it listens to
+MIDI channel 0 (or 1?), so the MIDI channel needs to be set correctly
+on the external instrument / MIDI device!**
 
 Whereas `CPCSYNTH.BAS` demonstrates how to turn the CPC into a simple
 3note polyphonic MIDI keyboard using MIDI IN, the `CPCTHRU.BAS`
