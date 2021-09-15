@@ -215,15 +215,15 @@ then the BluePill might not have enough processing speed to also serve
 the CPC-generated interupts in a timely fashion concurrently, hence
 violating the Z80 IO port protocol, crashing the system.
 
-The songs on `ULTIMIDI2.dsk` and `ULTMIDI3.dsk` are at the absolut
-limit of what can be recorded in REALTIME with the CPC + BluePill
-combo, and I had to record them with the CPC 464, as my 6128 was
-having timing issues here. It is possible that I will try to tweak the
-firmware a bit more at some point, but not much can be done to
-eleviate this problem, as the bandwidth / speed is simply not there in
-the BluePill (one would think 72 MHz are enough, but... it is at the
-limit). So, when trying to record this on your own, your "milage may
-vary".
+The songs on [cpc/ULTMIDI2.dsk](cpc/ULTMIDI2.dsk) and
+[cpc/ULTMIDI3.dsk](cpc/ULTMIDI3.dsk) are at the absolut limit of what
+can be recorded in REALTIME with the CPC & BluePill combo, and I had
+to record them with the CPC 464, as my 6128 was having timing issues
+here. It is possible that I will try to tweak the firmware a bit more
+at some point, but not much can be done to eleviate this problem, as
+the bandwidth / speed is simply not there in the BluePill (one would
+think 72 MHz are enough, but... it is at the limit). So, when trying
+to record this on your own, your "milage may vary".
 
 Note that this problem only occurs for ultra-complex polyphonic
 mult-track MIDI data realtime recording / streaming (i.e., a whole
