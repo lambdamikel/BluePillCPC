@@ -210,10 +210,10 @@ writing of MIDI data. The BluePill firmware handles these IO requests
 purely in software, using Interupt Request Handlers (ISRs). CPC IO
 requests hence cause interupts to the BluePill firmware program. At
 the same time, MIDI data also generates interupts. If there are too
-interupts being generated from highly complex incoming MIDI data, then
-the BluePill might not have enough processing speed to also serve the
-CPC-generated interupts in a timely fashion, hence violating the Z80
-IO port protocol and crashing the system.
+many interupts being generated from highly complex incoming MIDI data,
+then the BluePill might not have enough processing speed to also serve
+the CPC-generated interupts in a timely fashion concurrently, hence
+violating the Z80 IO port protocol, crashing the system.
 
 The songs on `ULTIMIDI2.dsk` and `ULTMIDI3.dsk` are at the absolut
 limit of what can be recorded in REALTIME with the CPC + BluePill
