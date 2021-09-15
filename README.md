@@ -82,7 +82,7 @@ Some YouTube videos:
 
 A recent customer asked me for this, so here we go. 
 
-First, load the [cpc/ULTMIDI2.dsk](ULTMIDI.dsk) and check out the
+First, load the [cpc/ULTMIDI.dsk](cpc/ULTMIDI.dsk) and check out the
 programs `MIDIOUT.BAS` and `MIDIDRUM.BAS`, as demonstrated here:
 [https://youtu.be/xLs3ZQm0AvA](https://youtu.be/xLs3ZQm0AvA).
 
