@@ -87,10 +87,10 @@ programs `MIDIOUT.BAS` and `MIDIDRUM.BAS`, as demonstrated here:
 [https://youtu.be/xLs3ZQm0AvA](https://youtu.be/xLs3ZQm0AvA).
 
 That should give you some sound from the stereo socket, and you should
-also be able to hear MIDI sound in the CPC speaker if **DIP switches 5
-and 6** are set to ON; see above for the DIP switch table.
+also be able to hear MIDI sound in the CPC speaker if **DIL switches 5
+and 6** are set to ON; see above for the DIL switch table.
 
-Note that, for the CPC to S2 MIDI routing to work, **DIP switch 1**
+Note that, for the CPC to S2 MIDI routing to work, **DIL switch 1**
 must be set to ON position ("Route CPC to S2").
 
 Next, try to play the MIDI song `SONG2.BIN` from 
@@ -109,7 +109,7 @@ the PC or Mac.
 Next, if you have a *MIDI sound module, keyboard or synthesizer*, you
 can try connecting it to the *MIDI OUT* socket and see if you can
 playback the same sounds / songs with this external device. Note that
-you must have **DIP switch 2** set to ON ("Route CPC to MIDI
+you must have **DIL switch 2** set to ON ("Route CPC to MIDI
 OUT"). Both switch 1 and 2 can be ON at the same time. In this case,
 the CPC-generated MIDI data will be played via the connected external
 module, and via the S2 (or X2GS, ... or whatever is plugged in at the
@@ -122,7 +122,7 @@ with a virtual "piano keyboard" that can be used to send MIDI data.
 Or you can play back a MID file from the PC that way.
 
 Now, with the external MIDI data generating device connected to MIDI
-IN, if **DIP switch 3** is set to ON, then the firmware will
+IN, if **DIL switch 3** is set to ON, then the firmware will
 automatically forward any received MIDI message to the S2 (X2GS, ...,
 whatever is connected to the S2 plugin header at the back of the
 card). *And without CPC involvement.*
@@ -137,7 +137,7 @@ X2GS!).
 Next, the card can also act as an additional MIDI Forwarder /
 Repeater. This is like the *MIDI THROUGH* socket on MIDI devices. Each
 incoming MIDI message is automatically forwarded to the MIDI OUT DIN
-socket if **DIP switch 4** is ON. Hence, with switches 3 and 4
+socket if **DIL switch 4** is ON. Hence, with switches 3 and 4
 enabled, you can play MIDI on the card, and forward the same data at
 the same time to another externally connected MIDI device. MIDI
 devices can be daisy-chained in that way (and, for example, be
