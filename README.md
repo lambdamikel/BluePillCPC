@@ -32,6 +32,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Some YouTube videos: 
 
+[The fantastic X2GS GM / GS MIDI Soundcard and Standalone CPC MIDI Playback](https://youtu.be/zATfSDlGLWw) 
+
 [Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg) 
 
 [First PCB Demo](https://youtu.be/ioN5ufExyvQ) 
