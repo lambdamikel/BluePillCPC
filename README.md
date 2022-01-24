@@ -32,6 +32,9 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Some YouTube videos: 
 
+[New Songs for Ultimate MIDI Card - X2GS GM / GS MIDI Standalone CPC MIDI Playback](https://youtu.be/suhhV89qnpE)
+
+
 [The fantastic X2GS GM / GS MIDI Soundcard and Standalone CPC MIDI Playback](https://youtu.be/zATfSDlGLWw)
 
 [Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg)
@@ -108,7 +111,20 @@ Alan Parsons! See
 There are 8 more such "song fragments" on the
 [cpc/ULTMIDI2.dsk](cpc/ULTMIDI2.dsk). Read below to learn how you can
 record your own song fragments from a MID file being played back by
-the PC or Mac. 
+the PC or Mac.
+
+Please note that that the songs on `ULTMID2.DSK` and `ULTMID3.DSK` have
+been created using realtime MIDI recording with the CPC and the
+Ultimata MIDI Card itself; a PC `.MID` playback program was used
+to create the stream of MIDI messages which was then recorded in
+realtime into the CPC with the MIDI Card. 
+
+However, the songs on the disk `PLAYBCK2.DSK` were created with a
+Python-based `.MID` to `BIN` converter. Hence, the song binaries were
+prepared on a PC running Python. The converter program will be available
+soon; note that the `PLAYBACK.BAS` MAXAM assembler program is required
+to playback the binary song files currently. This is still somewhat
+work in progress. 
 
 Next, if you have a *MIDI sound module, keyboard or synthesizer*, you
 can try connecting it to the *MIDI OUT* socket and see if you can
