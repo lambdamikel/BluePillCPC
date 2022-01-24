@@ -117,12 +117,14 @@ Ultimata MIDI Card itself; a PC `.MID` playback program was used
 to create the stream of MIDI messages which was then recorded in
 realtime into the CPC with the MIDI Card. 
 
-However, the songs on the disk [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) were
-created with a Python-based `.MID` to `BIN` converter. Hence, the song
-binaries were prepared on a PC running Python. The converter program
-will be available soon; note that the `PLAYBACK.BAS` MAXAM assembler
-program is required to playback the binary song files currently. This
-is still somewhat work in progress.
+However, the songs on the disk [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk)
+were created with a Python-based `.MID` to `BIN` converter. Hence, the
+song binaries were prepared on a PC running Python. The converter
+program will be available soon; note that the `PLAYBACK.BAS` MAXAM
+assembler program is required to playback the binary song files
+currently. This is still somewhat work in progress. See here for a [a
+video of `cpc/PLAYBCK1.dsk`](https://youtu.be/suhhV89qnpE).
+
 
 Next, if you have a *MIDI sound module, keyboard or synthesizer*, you
 can try connecting it to the *MIDI OUT* socket and see if you can
