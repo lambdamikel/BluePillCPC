@@ -110,14 +110,14 @@ There are 8 more such "song fragments" on the
 record your own song fragments from a MID file being played back by
 the PC or Mac.
 
-Please note that that the songs on [cpc/ULTMIDI2.dsk](`ULTMIDI2.dsk`)
-and [`cpc/ULTMIDI3.dsk`](ULTMIDI3.dsk) were 
+Please note that that the songs on [`cpc/ULTMIDI2.dsk`](cpc/ULTMIDI2.dsk)
+and [`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) were 
 been created using realtime MIDI recording with the CPC and the
 Ultimata MIDI Card itself; a PC `.MID` playback program was used
 to create the stream of MIDI messages which was then recorded in
 realtime into the CPC with the MIDI Card. 
 
-However, the songs on the disk [`cpc/PLAYBCK1.DSK`](PLAYBCK1.DSK) were
+However, the songs on the disk [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) were
 created with a Python-based `.MID` to `BIN` converter. Hence, the song
 binaries were prepared on a PC running Python. The converter program
 will be available soon; note that the `PLAYBACK.BAS` MAXAM assembler
