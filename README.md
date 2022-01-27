@@ -125,8 +125,7 @@ to hit `x` to stop the recording; if you record too long, it will
 overwrite the CPC's firmware RAM and crash the machine - future work
 to make it more robust...) 
 
-However, the songs on the [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk),
-[`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk),
+However, the songs on [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk),
 [`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
 [`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) were created with a
 Python-based `.MID` to `BIN` converter. This converter program will be
@@ -245,7 +244,7 @@ some point. So, when recording, make sure to hit the "x" key to quit
 video of the recording process:
 [https://youtu.be/9-n1bf7yXhg?t=780](https://youtu.be/9-n1bf7yXhg?t=780)
 
-And a note of warning: depending on the complexity of the MIDI
+**And a note of warning:** depending on the complexity of the MIDI
 recorded that way, this is really at the limit of what the BluePill &
 CPC combo can do. **If the MIDI gets too complex, then the CPC might
 also crash.** This is caused by the BluePill. The CPC software
@@ -267,7 +266,7 @@ here. It is possible that I will try to tweak the firmware a bit more
 at some point, but not much can be done to eleviate this problem, as
 the bandwidth / speed is simply not there in the BluePill (one would
 think 72 MHz are enough, but... it is at the limit). So, when trying
-to record this on your own, your "milage may vary".
+to record this on your own, your "milage may vary". 
 
 Note that this problem only occurs for ultra-complex polyphonic
 mult-track MIDI data realtime recording / streaming (i.e., a whole
@@ -281,6 +280,12 @@ of piano track only etc. does not cause any bandwidth issues.
 At some point, I also want to write a MID file player for the CPC
 (other customers are also working on this). Then there would be no
 need to "record" the MIDI songs in that way. 
+
+**Note that the Python-based `.MID` to `.BIN` converter will
+be available soon. As explained above, the songs on the `PLAYBCK*`
+disks were not recorded in realtime using `RECORDE2.BAS`, but
+have been generated on the PC by the converter.** 
+
 
 ## Latest News
 
