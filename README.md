@@ -32,8 +32,9 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Some YouTube videos: 
 
-[New Songs for Ultimate MIDI Card - X2GS GM / GS MIDI Standalone CPC MIDI Playback](https://youtu.be/suhhV89qnpE)
+[Extended Memory (CPC 6128) and the Ultimate MIDI Card - Untruncated Mammagamma & Axel F](https://youtu.be/RhgFmPhj5Qk)
 
+[New Songs for Ultimate MIDI Card - X2GS GM / GS MIDI Standalone CPC MIDI Playback](https://youtu.be/suhhV89qnpE)
 
 [The fantastic X2GS GM / GS MIDI Soundcard and Standalone CPC MIDI Playback](https://youtu.be/zATfSDlGLWw)
 
@@ -85,6 +86,11 @@ Some YouTube videos:
 |   8    | 0 = Enable card - make sure 7 = 1 | 
 ----------------------------------------------
 
+## Software
+
+Read the following description for an explanation of the demo programs. 
+
+
 ## First Steps with the Ultimate MIDI Sound Card 
 
 A recent customer asked me for this, so here we go. 
@@ -110,21 +116,39 @@ There are 8 more such "song fragments" on the
 record your own song fragments from a MID file being played back by
 the PC or Mac.
 
-Please note that that the songs on [`cpc/ULTMIDI2.dsk`](cpc/ULTMIDI2.dsk)
-and [`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) were 
-been created using realtime MIDI recording with the CPC and the
-Ultimata MIDI Card itself; a PC `.MID` playback program was used
-to create the stream of MIDI messages which was then recorded in
-realtime into the CPC with the MIDI Card. 
+Please note that that the songs on
+[`cpc/ULTMIDI2.dsk`](cpc/ULTMIDI2.dsk) and
+[`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) were created using realtime
+MIDI recording with the CPC and the Ultimata MIDI Card itself.  The
+`RECORDE2.BAS` MAXAM assembler program can be used for that (be sure
+to hit `x` to stop the recording; if you record too long, it will
+overwrite the CPC's firmware RAM and crash the machine - future work
+to make it more robust...) 
 
-However, the songs on the disk [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk)
-were created with a Python-based `.MID` to `BIN` converter. Hence, the
-song binaries were prepared on a PC running Python. The converter
-program will be available soon; note that the `PLAYBACK.BAS` MAXAM
-assembler program is required to playback the binary song files
-currently. This is still somewhat work in progress. See here for a [a
-video of `cpc/PLAYBCK1.dsk`](https://youtu.be/suhhV89qnpE).
+However, the songs on the [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk),
+[`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk),
+[`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
+[`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) were created with a
+Python-based `.MID` to `BIN` converter. This converter program will be
+available soon. The song-fragments on
+[`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) can be played with an
+unextended CPC 464. The `PLAYBACK.BAS` program require MAXAM
+assembler. The [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk) contains
+complete MIDI songs, but requires a CPC 6128. Songs are now partioned
+into 16 KB fragments to support easy loading into the indiviual 16 KB
+memory seqments. The `PLAYBACK.BAS` program on this disk requires
+MAXAM assembler as well. Finally, ths disks
+[`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
+[`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) require the standard DK'tronics
+512 KB memory expansion (or ToTO's XMem, Revaldhino's memory
+expansion, etc.) The songs on these disks are rather large and split
+into up to 9 16 KB segments. In addition to the `PLAYBACK.BAS` MAXAM
+assembler program, there is also a binary version of the loader /
+playback program available, `PLAYBIN.BAS`.
 
+See here for [a video of
+`cpc/PLAYBCK1.dsk`](https://youtu.be/suhhV89qnpE), and here for [a
+video of `cpc/PLAYBCK2.dsk`](https://youtu.be/RhgFmPhj5Qk).
 
 Next, if you have a *MIDI sound module, keyboard or synthesizer*, you
 can try connecting it to the *MIDI OUT* socket and see if you can
@@ -260,11 +284,29 @@ need to "record" the MIDI songs in that way.
 
 ## Latest News
 
-- 9/15/2021: 3 more devices have been sold, and a "Howto - First Steps" section was added to this README.
+- 1/26/2022: first steps with the Python-based MID->BIN converter to
+create complex MIDI content for the card.  Support of the CPC 6128
+extended memory and 512 KB memory expansion.
 
-- 7/1/2021: MIDI Data Stream Recorder implemented - I can now record & play back complex GM MIDI songs from the CPC memory. As usual, the Z80 assembler source code of the [MIDI recorder & playback program and a number of BIN song files are in the repo](cpc/ULTMIDI2.dsk). A demo of the program and the 8 song `BIN`s is on YouTube: [Standalone CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg). I expect this kind of "MIDI data playback from CPC memory" to be the main application for the card, so most people will just use it as a MIDI sound card for their CPCs. However, unlike other MIDI sound cards, you can effortlessly create MIDI songs simply by recording the MIDI stream; hence, content / song creation for the card is literally effortless if you have a PC USB MIDI cable. 
+- 9/15/2021: 3 more devices have been sold, and a "Howto - First
+  Steps" section was added to this README.
 
-The friends from [Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html) also posted my update - thanks, guys! 
+- 7/1/2021: MIDI Data Stream Recorder implemented - I can now record &
+  play back complex GM MIDI songs from the CPC memory. As usual, the
+  Z80 assembler source code of the [MIDI recorder & playback program
+  and a number of BIN song files are in the repo](cpc/ULTMIDI2.dsk). A
+  demo of the program and the 8 song `BIN`s is on YouTube: [Standalone
+  CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg). I expect this kind
+  of "MIDI data playback from CPC memory" to be the main application
+  for the card, so most people will just use it as a MIDI sound card
+  for their CPCs. However, unlike other MIDI sound cards, you can
+  effortlessly create MIDI songs simply by recording the MIDI stream;
+  hence, content / song creation for the card is literally effortless
+  if you have a PC USB MIDI cable.
+
+The friends from
+[Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
+also posted my update - thanks, guys!
 
 ![Matrixsynth New](pics/matrixsynth4.png) 
 
