@@ -119,7 +119,7 @@ the PC or Mac.
 Please note that that the songs on
 [`cpc/ULTMIDI2.dsk`](cpc/ULTMIDI2.dsk) and
 [`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) were created using realtime
-MIDI recording with the CPC and the Ultimata MIDI Card itself.  The
+MIDI recording with the CPC and the Ultimate MIDI Card itself.  The
 `RECORDE2.BAS` MAXAM assembler program can be used for that (be sure
 to hit `x` to stop the recording; if you record too long, it will
 overwrite the CPC's firmware RAM and crash the machine - future work
