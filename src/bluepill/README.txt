@@ -1,4 +1,4 @@
-st-flash write <firmware image>.img 0x8000000
+st-flash write firmware-v3-2022.bin 0x8000000
 
 
 

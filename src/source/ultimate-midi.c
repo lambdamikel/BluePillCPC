@@ -4,6 +4,13 @@
 // WITH DIL SWITCH INPUT OPTIONS
 // CPCNEW-FINAL
 //
+//
+// Last update: January 2022, New Linux machine, updated ST devel tools!
+// MIDI Recording tested on 464, Games People Play OK!
+// MIDI Recording tested on 6128, Canyon OK!
+// CPC synth OK
+// MIDI playback (song2.bin) OK
+// 
 
 
 #include <stdint.h>
@@ -306,9 +313,6 @@ void exti9_5_isr(){
 
     counter = gpio_port_read(GPIOB);
   
-    __asm__("nop");
-    __asm__("nop");
-
     uint16_t ch = (counter >> 8);
 
     if (cpc_to_midi_out) 
