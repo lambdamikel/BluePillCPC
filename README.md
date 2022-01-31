@@ -30,6 +30,13 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ![Schematics](pics/schematics.png) 
 
+YouTube Demo:
+
+[Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the X2GS](https://youtu.be/jTj-EcoIfkQ)
+
+![Eye in the Sky demo](pics/eyesky.jpg) 
+
+
 Some YouTube videos: 
 
 [Extended Memory (CPC 6128) and the Ultimate MIDI Card - Untruncated Mammagamma & Axel F](https://youtu.be/RhgFmPhj5Qk)
