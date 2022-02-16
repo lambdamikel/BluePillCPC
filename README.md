@@ -30,14 +30,14 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ![Schematics](pics/schematics.png) 
 
-Review by the Amstrad Noob:
+## Review by the Amstrad Noob 
 
 The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are enjoying it!
 
 ![Amstrad Noob](pics/noob.jpg) 
 
 
-YouTube Demos:
+## YouTube Demos 
 
 [Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the S2](https://youtu.be/ESy15P0HWm8)
 
@@ -48,8 +48,7 @@ YouTube Demos:
 
 ![Eye in the Sky demo](pics/eyesky.jpg) 
 
-
-Some YouTube videos: 
+Some more videos:
 
 [Extended Memory (CPC 6128) and the Ultimate MIDI Card - Untruncated Mammagamma & Axel F](https://youtu.be/RhgFmPhj5Qk)
 
