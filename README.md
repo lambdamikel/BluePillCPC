@@ -30,7 +30,12 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ![Schematics](pics/schematics.png) 
 
-YouTube Demo:
+YouTube Demos:
+
+[Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the S2](https://youtu.be/ESy15P0HWm8)
+
+![Oxygene 4 - JMJ](pics/oxy4.jpg) 
+
 
 [Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the X2GS](https://youtu.be/jTj-EcoIfkQ)
 
