@@ -30,6 +30,13 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ![Schematics](pics/schematics.png) 
 
+Review by the Amstrad Noob:
+
+The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are enjoying it!
+
+![Amstrad Noob](pics/noob.jpg) 
+
+
 YouTube Demos:
 
 [Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the S2](https://youtu.be/ESy15P0HWm8)
