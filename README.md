@@ -50,7 +50,7 @@ The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDL
 ![Eye in the Sky demo](pics/eyesky.jpg) 
 
 
-["Force Majeure" on the CPC 464 with the X2GS Revaldinho 512 KB RAM Expansion](https://youtu.be/VNa4OryULDY)
+["Force Majeure" on the CPC 464 with the X2GS and Revaldinho's 512 KB RAM Expansion](https://youtu.be/VNa4OryULDY)
 
 ![Tangerine Dream - Force Majeure](pics/force.jpg) 
 
