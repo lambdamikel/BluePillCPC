@@ -45,7 +45,7 @@ The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDL
 ![Oxygene 4 - JMJ](pics/oxy4.jpg) 
 
 
-["Eye in the Sky" on the CPC 6128 with the X2GS and XMem RAM Expansion](https://youtu.be/jTj-EcoIfkQ)
+["Eye in the Sky" on the CPC 464 with the X2GS and XMem RAM Expansion](https://youtu.be/jTj-EcoIfkQ)
 
 ![Eye in the Sky demo](pics/eyesky.jpg) 
 
