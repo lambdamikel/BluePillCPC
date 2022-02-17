@@ -40,14 +40,20 @@ The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDL
 
 ## YouTube Demos 
 
-[Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the S2](https://youtu.be/ESy15P0HWm8)
+["Oxygene 4" on the CPC 6128 with the S2 and XMem RAM Expansion](https://youtu.be/ESy15P0HWm8)
 
 ![Oxygene 4 - JMJ](pics/oxy4.jpg) 
 
 
-[Large MID File Playback from CPC Memory (512 KB RAM expansion required) with the X2GS](https://youtu.be/jTj-EcoIfkQ)
+["Eye in the Sky" on the CPC 6128 with the X2GS and XMem RAM Expansion](https://youtu.be/jTj-EcoIfkQ)
 
 ![Eye in the Sky demo](pics/eyesky.jpg) 
+
+
+["Force Majeure" on the CPC 464 with the X2GS Revaldinho 512 KB RAM Expansion](https://youtu.be/VNa4OryULDY)
+
+![Tangerine Dream - Force Majeure](pics/force.jpg) 
+
 
 Some more videos:
 
