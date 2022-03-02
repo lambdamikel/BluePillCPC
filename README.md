@@ -325,7 +325,7 @@ need to "record" the MIDI songs in that way.
 Use the [`PythonConverter/`](PythonConverter/) executable to convert
 MIDI files into BIN files for the CPC `playback.bas` (MAXAM) or
 `blackback.bin` machine code program.  You'll find these programs on
-the demo disks; e.g., [`cpc/FORCE.dsk`](`cpc/FORCE.dsk`). 
+the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk). 
 
 ![Converter](pics/converter.png) 
 
