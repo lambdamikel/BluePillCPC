@@ -160,11 +160,11 @@ to make it more robust...)
 However, the songs on [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk),
 [`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
 [`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) were created with a
-Python-based `.MID` to `BIN` converter. This converter program will be
-available soon. The song-fragments on
-[`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) can be played with an
-unextended CPC 464. The `PLAYBACK.BAS` program require MAXAM
-assembler. The [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk) contains
+Python-based `.MID` to `BIN` converter.
+
+The song-fragments on [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) can be
+played with an unextended CPC 464. The `PLAYBACK.BAS` program require
+MAXAM assembler. The [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk) contains
 complete MIDI songs, but requires a CPC 6128. Songs are now partioned
 into 16 KB fragments to support easy loading into the indiviual 16 KB
 memory seqments. The `PLAYBACK.BAS` program on this disk requires
@@ -316,18 +316,24 @@ recording, not for playback. Also, less complex MID songs are entirely
 unproblematic, i.e., recording classical music that usually consists
 of piano track only etc. does not cause any bandwidth issues.
 
-
-**Note that the Python-based `.MID` to `.BIN` converter will
-be available soon. As explained above, the songs on the `PLAYBCK*`
-disks were not recorded in realtime using `RECORDE2.BAS`, but
-have been generated on the PC by the converter.** 
-
 At some point, I also want to write a MID file player for the CPC
 (other customers are also working on this). Then there would be no
 need to "record" the MIDI songs in that way. 
 
+## Python Converter
+
+Use the [`PythonConverter/`](PythonConverter/) executable to convert
+MIDI files into BIN files for the CPC `playback.bas` (MAXAM) or
+`blackback.bin` machine code program.  You'll find these programs on
+the demo disks; e.g., [`cpc/FORCE.dsk`](`cpc/FORCE.dsk`). 
+
+![Converter](pics/converter.png) 
 
 ## Latest News
+
+- 3/1/2022: the Python converter is available now.
+
+![Converter](pics/converter.png) 
 
 - 1/26/2022: first steps with the Python-based MID->BIN converter to
 create complex MIDI content for the card.  Support of the CPC 6128
