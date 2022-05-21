@@ -40,6 +40,11 @@ The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDL
 
 ## YouTube Demos 
 
+["The Turn of a Friendly Card" on the CPC 6128 with the S2](https://youtu.be/L2BTM9haHGY)
+
+![Turn of a Friendly Card - Alan Parsons](pics/turn.jpg) 
+
+
 ["Oxygene 4" on the CPC 6128 with the S2 and XMem RAM Expansion](https://youtu.be/ESy15P0HWm8)
 
 ![Oxygene 4 - JMJ](pics/oxy4.jpg) 
