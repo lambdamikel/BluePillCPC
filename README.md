@@ -1,9 +1,10 @@
 # BluePillCPC
 An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
-*PLEASE NOTE THAT THE CARD IS INCOMPATIBLE WITH THE CPC PLUS RANGE OF COMPUTERS - IT ONLY WORKS ON STANDARD CPC's! *
 
-It's a generic IO interface to the CPC, so use cases are generic. 
+It's a generic IO interface to the CPC, so use cases are generic.
+**PLEASE NOTE THAT THE CARD IS INCOMPATIBLE WITH THE CPC PLUS RANGE OF COMPUTERS - IT ONLY WORKS ON STANDARD CPC's!**
+
  
 ## The Ultimate CPC MIDI Sound & MIDI Interface Card
 
