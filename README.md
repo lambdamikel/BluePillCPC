@@ -32,7 +32,25 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Very DIY friendly (no SMD, plug and play of standard modules)
 - Fully OpenSource 
 
-![Schematics](pics/schematics.png) 
+![Schematics](pics/schematics.png)
+
+[PDF Version of schematics - don't use the values in the schematics, see below!](pics/schematics.pdf)
+
+
+## Bill of Material (BOM) 
+
+**Don't user the values in the schematics, uses these instead:** 
+
+- GAL: Lattice 22V10 (B or D)
+- C1: 104 (100 nF) 
+- C2, C3: 224 (220 nF) 
+- C4: **this is bridge wire, not a capacitor!** 
+- R1, R2: 2k 
+- R3: 4.7k
+- 8 position DIP switch
+- Line-out mini stereo socket
+- Push button
+- BluePill, Adafruit MIDI FeatherWing
 
 ## Review by the Amstrad Noob 
 
