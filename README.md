@@ -39,7 +39,7 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ## Bill of Material (BOM) 
 
-**Don't user the values in the schematics, uses these instead:** 
+**Don't use the values from the schematics, use these instead:** 
 
 - GAL: Lattice 22V10 (B or D)
 - C1: 104 (100 nF) 
