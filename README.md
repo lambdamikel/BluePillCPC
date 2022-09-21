@@ -52,7 +52,7 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Push button
 - BluePill, Adafruit MIDI FeatherWing
 
-## Review by "My Electronics Hobby" (in German):
+## Review by "My Electronics Hobby" (in German)
 
 And here a [review in German by "My Electronics
 Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dass
@@ -60,9 +60,9 @@ alles so gut geklappt hat mit dem Zusammenbau.
 
 ![Schneiderlein 1](pics/schneiderlein1.png) 
 
-## Review by the Amstrad Noob 
+## Review by "The Amstrad Noob" 
 
-The Amstrad Noob did a [very nice review of the card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are enjoying it!
+"The Amstrad Noob" did a [very nice review of the card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are enjoying it!
 
 ![Amstrad Noob](pics/noob.jpg) 
 
