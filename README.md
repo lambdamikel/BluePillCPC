@@ -365,6 +365,16 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 
 ## Latest News
 
+- 8/31/2023: CPC enthusiast [Manfred
+  Gross](https://youtu.be/c94lG-UYBnE) has created 19 (!) DSK images
+  with fresh MIDI songs for the Ultimate MIDI Card and allowed me to
+  share them with you - [here you go!](cpc/manfredgross/).  He used
+  the [`PythonConverter`](PythonConverter/).  Thanks Manfred, great
+  stuff!
+  
+
+## Older News
+
 - 3/1/2022: the Python converter is available now.
 
 ![Converter](pics/converter.png) 
