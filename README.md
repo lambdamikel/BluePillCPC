@@ -365,6 +365,17 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 
 ## Latest News
 
+- 4/28/2024: CPC enthusiast [Manfred
+  Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
+  Board with his 6128
+  Plus](https://www.youtube.com/watch?v=XsebWLakPO8)], demonstrating
+  that the card is working fine with his 6126 Plusm, invalidating the
+  report of a previous customer who said it didn't work with his
+  Plus. The latter being the reason why I list the Plus range as
+  officially not supported by the card. So, as always: your milage may
+  vary - I personally don't see a reason why the card wouldn't work
+  with the Plus.
+
 - 8/31/2023: CPC enthusiast [Manfred
   Gross](https://youtu.be/c94lG-UYBnE) has created 19 (!) DSK images
   with fresh MIDI songs for the Ultimate MIDI Card and allowed me to
