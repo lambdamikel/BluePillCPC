@@ -66,8 +66,9 @@ alles so gut geklappt hat mit dem Zusammenbau.
 
 ![Amstrad Noob](pics/noob.jpg) 
 
+## YouTube Demos
 
-## YouTube Demos 
+[X2GS Demo Video with the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe4) 
 
 ["The Turn of a Friendly Card" on the CPC 6128 with the S2](https://youtu.be/L2BTM9haHGY)
 
@@ -364,6 +365,8 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 ![Converter](pics/converter.png) 
 
 ## Latest News
+
+- 4/28/2024: Another great demo video with the [X2GS sound module on the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe) 
 
 - 4/28/2024: CPC enthusiast [Manfred
   Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
