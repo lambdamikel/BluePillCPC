@@ -1,10 +1,9 @@
 # BluePillCPC
 An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
+**UNLIKE PREVIOUSLY REPORTED, THE BOARD ALSO [WORKS FLAWLESSLY WITH THE CPC PLUS RANGE OF COMPUTER!](https://youtu.be/XsebWLakPO8)** 
 
 It's a generic IO interface to the CPC, so use cases are generic.
-**PLEASE NOTE THAT THE CARD IS INCOMPATIBLE WITH THE CPC PLUS RANGE OF COMPUTERS - IT ONLY WORKS ON STANDARD CPC's!**
-
  
 ## The Ultimate CPC MIDI Sound & MIDI Interface Card
 
@@ -52,10 +51,18 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Push button
 - BluePill, Adafruit MIDI FeatherWing
 
+## Manfred Gross' Demo of the Ultimate MIDI Card on the Amstrad CPC 6128 PLUS
+
+Here is the [proof that the Ultimate MIDI Card has no issues
+whatsoever with the CPC Plus range of computers - even if the
+expansion port is routed through a SCSI A/B selector switch and a long
+cable.](https://youtu.be/XsebWLakPO8)
+
+
 ## Review by "My Electronics Hobby" (in German)
 
 And here a [review in German by "My Electronics
-Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dass
+Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dassw
 alles so gut geklappt hat mit dem Zusammenbau.
 
 ![Schneiderlein 1](pics/schneiderlein1.png) 
