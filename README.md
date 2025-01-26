@@ -1,7 +1,7 @@
 # BluePillCPC
 An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
-**UNLIKE PREVIOUSLY REPORTED, THE BOARD ALSO [WORKS FLAWLESSLY WITH THE CPC PLUS RANGE OF COMPUTER!](https://youtu.be/XsebWLakPO8)** 
+**UNLIKE PREVIOUSLY REPORTED, THE BOARD ALSO [WORKS FLAWLESSLY ON THE CPC PLUS RANGE OF COMPUTERS!](https://youtu.be/XsebWLakPO8)** 
 
 It's a generic IO interface to the CPC, so use cases are generic.
  
@@ -55,8 +55,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 Here is the [proof that the Ultimate MIDI Card has no issues
 whatsoever with the CPC Plus range of computers - even if the
-expansion port is routed through a SCSI A/B selector switch and a long
-cable.](https://youtu.be/XsebWLakPO8)
+expansion port is routed through a SCSI A/B selector switch with a
+very long SCSI cable.](https://youtu.be/XsebWLakPO8)
 
 
 ## Review by "My Electronics Hobby" (in German)
@@ -373,7 +373,8 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 
 ## Latest News
 
-- 4/28/2024: Another great demo video with the [X2GS sound module on the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe) 
+- 4/28/2024: Another great demo video with the [X2GS sound module on
+  the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe)
 
 - 4/28/2024: CPC enthusiast [Manfred
   Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
@@ -384,8 +385,8 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
   this report was the reason why I listed the CPC Plus range as
   officially unsupported by the card. So, as always: your milage may
   vary - I personally don't see a reason why the card wouldn't work
-  with the Plus. But it may not always be so straight-forward with
-  40 year old hardware. 
+  with the Plus. But it may not always be so straight-forward with 40
+  year old hardware.
 
 - 8/31/2023: CPC enthusiast [Manfred
   Gross](https://youtu.be/c94lG-UYBnE) has created 19 (!) DSK images
