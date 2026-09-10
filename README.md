@@ -20,6 +20,7 @@ Features:
 - MIDI soft through option: all incoming MIDI data (from CPC or MIDI IN) can be forwarded / relayed to the MIDI OUT socket ("MIDI SOFT THRU")
 - CPC MIDI Synthesizer software in machine code (MIDI INPUT demo)  
 - CPC GM Drumcomputer software in BASIC (MIDI OUTPUT demo) 
+- [TRACKER, a six track MIDI step sequencer](cpc/tracker/) for the card, with a full screen pattern editor, song arranger, MIDI clock out and realtime MIDI recording (MIDI INPUT + OUTPUT)
 - "Lazy engineering": MX4 compatible CPC extension board using three
 sockets, one for the Blue Pill, one for the S2, one for the optional Midifeather.
 - Only one additional chip required - a GAL22V10 programmed as an address decoder. The Blue Bill does not have enough 5V-compatible GPIO ports to do the
@@ -371,7 +372,96 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 
 ![Converter](pics/converter.png) 
 
+## TRACKER - a MIDI Step Sequencer for the Card
+
+![TRACKER](pics/tracker-boogie.png)
+
+TRACKER turns the CPC and the Ultimate MIDI Card into a six track MIDI
+step sequencer. It is a port of TRACKER 2.00 from my [MIDI-80 card for
+the TRS-80](https://github.com/lambdamikel/MIDI-80) - which is itself the
+card this one grew out of - so the two have finally met.
+
+**Everything is in [`cpc/tracker/`](cpc/tracker/)**: ready to run `DSK`
+and `HFE` images with three demo songs, the full Z80 source, and the
+build instructions.
+
+Put a disc in the drive and type
+
+    RUN"TRACKER
+
+then `L` and `Y` to load the song, and `P` to play. `!` plays the whole
+arrangement rather than the single pattern, and `H` is the help page.
+
+### What it does
+
+- **six tracks**, each with its own MIDI channel, GM instrument,
+  velocity, gate length and drum note
+- **26 patterns**, A to Z, up to 8 bars of 16th notes each, chained into
+  a song by the built-in arranger
+- **full screen grid editor** - the cursor keys move around the pattern,
+  SPACE and ENTER/COPY place notes, and the play cursor runs along the
+  ruler as it goes
+- **realtime MIDI recording**: plug a keyboard into MIDI IN, press `#`
+  and `T`, and play - the notes land in the grid, quantised to the
+  current grid resolution
+- **MIDI clock out** at 24 ppqn plus MMC transport, so the CPC can drive
+  a drum machine or a DAW; or **external sync in**, so something else
+  can drive the CPC
+- an accurate **BPM readout**, and a step pulse on the Centronics port
+  for anything that wants a hardware clock
+
+### On the timing
+
+This is the part the CPC turns out to be unreasonably good at. The
+TRS-80 has to *estimate* how much time has passed, because it cannot
+know its own loop costs - video wait states, DRAM refresh and a variable
+ROM keyboard call all move underneath it, and that estimate is why its
+BPM readout reads low. The CPC needs none of that: the gate array
+stretches every instruction to a whole number of microseconds, so with
+interrupts off, every region of the loop costs exactly what it costs. The
+step period is *computed*, not calibrated.
+
+Measured on an emulated 6128, with the step boundary tapped directly and
+averaged over 420 steps:
+
+| | |
+|---|---|
+| step period | 107453 us against a 107364 us target - **+0.08%** |
+| jitter | standard deviation **244 us** |
+| a pattern change | one step long by 6.5 ms, and no drift after it |
+
+The step period is deliberately matched to the TRS-80's, so a song plays
+at the same tempo on either machine.
+
+### One thing worth knowing if you write MIDI code for the card
+
+MIDI runs at 31250 baud, which means a byte occupies the wire for
+**320 us** and nothing can be sent faster than that, whatever buffer the
+card has. An early version of this program paced its bytes at 98 us. It
+looked perfect under emulation - an emulator has no wire - but on real
+hardware whole chords went missing and instruments came out as piano,
+because a step where five tracks sound is 15 bytes needing 4.8 ms, and
+the six program changes at the start of playback are 12 bytes needing
+3.8 ms. If you are sending back to back MIDI bytes from the CPC, put the
+wait in your byte-out routine, not at the call sites - that way the
+clock bytes and the panic messages get it too.
+
 ## Latest News
+
+- 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
+  available for the card](cpc/tracker/)** - a full screen pattern
+  editor with a song arranger, MIDI clock out, external sync, and
+  realtime MIDI recording from a keyboard plugged into MIDI IN. It is a
+  port of TRACKER 2.00 from my [MIDI-80 card for the
+  TRS-80](https://github.com/lambdamikel/MIDI-80), and songs
+  interchange between the two machines byte for byte. Three demo songs
+  are included as ready to run [`DSK`](cpc/tracker/dsk/) and
+  [`HFE`](cpc/tracker/hfe/) images - just `RUN"TRACKER`, then `L`, `Y`,
+  `P`. The Z80 source, the generator that produces it from the TRS-80
+  original, and build instructions are [in the repo as
+  well](cpc/tracker/). Written together with Claude (Anthropic).
+
+![TRACKER](pics/tracker-boogie.png)
 
 - 4/28/2024: Another great demo video with the [X2GS sound module on
   the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe)
