@@ -1,7 +1,20 @@
 # TRACKER for the Ultimate MIDI Card
 
 A six track MIDI step sequencer for the CPC 6128, driving the Ultimate
-MIDI Card. Ported from the TRS-80 MIDI/80 version of TRACKER 2.00.
+MIDI Card.
+
+Ported from **TRACKER 2.00** for the
+[MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI sound and
+interface card for the TRS-80 - which is itself the card the Ultimate MIDI
+Card grew out of, so this brings the software back the other way. The
+original, its Z80 source and its
+[demo songs](https://github.com/lambdamikel/MIDI-80/tree/main/songs) are
+in that repository.
+
+**The port to the CPC was done by [Claude](https://claude.com/claude-code)
+(Anthropic)** - the display layer, the PSG keyboard scan, the AMSDOS file
+I/O, the timing model, and the generator that produces the CPC source from
+the TRS-80 original.
 
 ![TRACKER on a CPC 6128](../../pics/tracker-boogie.png)
 
@@ -24,29 +37,156 @@ arrangement instead of the one pattern. `H` is the help page.
 `Q` quits by resetting the machine - TRACKER loads over BASIC's program
 area, so there is nothing left to return to.
 
-## Keys
+## Using it
+
+### What you are looking at
+
+    **** ULT.MIDI CARD TRACKER V2.00 (C)2026 LAMBDAMIKEL+CLAUDE ****
+    PAT:C SF | TRACK:1 BPM:140  | B:8 S:04 | C:0 I:21 N:24 V:70 G:02
+    1===-===+===-===2===-===+===-===3===-===+===-===4===-===+===-===
+    <track 1, bars 1-4>
+    <track 2, bars 1-4>            six rows, one per track
+    ...
+    5===-===+===-===6===-===+===-===7===-===+===-===8===-===+===-===
+    <track 1, bars 5-8>
+    ...                            the same six tracks, bars 5-8
+
+Each grid row is one track, and each column is a 16th note. Eight bars of
+16ths is 128 steps, which is why the pattern is split into two blocks of
+64: bars 1-4 on top, bars 5-8 below. The ruler rows number the bars and
+mark the beats, and the play cursor runs along them while the song plays.
+
+The status line, left to right:
 
 | | |
 |---|---|
-| `A` `D` `W` `X`, `Z` `C`, **arrow keys** | move the edit cursor |
-| SPACE | set the grid step |
-| ENTER, **COPY** | set the step and sound it |
+| `PAT:C` | the pattern being edited, A to Z |
+| `S` | transport - `H` stopped, `P` playing a pattern, `S` playing the song |
+| `F` | cursor tracking - `F` free, `T` follows the play cursor |
+| (blank) | record - blank for playback, `*` when armed |
+| `\|` | external clock - `\|` off, `'` on |
+| (blank) | MIDI sync out - blank off, `C` clock, `B` clock+MMC, `M` MMC only |
+| `TRACK:1` | which track the cursor is on |
+| `BPM:140` | the real tempo, computed from the step period |
+| `B:8` | bars in this pattern, 1 to 8 |
+| `S:04` | grid resolution - the cursor and note entry snap to this |
+| `C:0` | MIDI channel for this track |
+| `I:21` | GM instrument, hex - **global**, not per pattern |
+| `N:24` | note used when you press SPACE, hex. For a drum track this is the drum |
+| `V:70` | velocity, hex |
+| `G:02` | gate length in steps - how long the note is held |
+
+The channel, instrument, drum note, velocity and gate are all *per track*,
+and change with wherever the cursor is.
+
+### A first pattern
+
+1. `L` then `Y` loads the `DUMP` on the disc, or start from the empty
+   pattern the program boots with.
+2. Move the cursor with the **arrow keys**. `A` and `D` jump by the grid
+   resolution, `Z` and `C` step one column at a time, `W` and `X` change
+   track. `1`-`8` jump straight to a bar.
+3. **SPACE** puts a note in the step under the cursor, using the `N:` note
+   for that track. **ENTER** or **COPY** does the same *and* sounds it, so
+   you can hear what you are placing. **CLR** removes it.
+4. `+` `-` set the MIDI channel for the track, `U` `I` the instrument,
+   `J` `K` the velocity, `*` the gate length. SHIFT with the left and
+   right arrows sets the drum note - use channel 10 and a track becomes a
+   drum voice.
+5. `P` plays the pattern in a loop. `P` again stops, and silences anything
+   still sounding.
+6. `,` `.` nudge the tempo, `N` `M` move it in bigger jumps. `B` sets how
+   many bars the pattern is, `G` the grid resolution.
+7. `S` then `Y` saves everything to the disc as `DUMP`.
+
+`0` is the panic button - all notes off on all 16 channels - if anything
+ever hangs.
+
+### Recording from a keyboard
+
+Plug a MIDI keyboard into the card's MIDI IN, press `#` to arm record and
+`T` so the cursor follows the playback, then `P`. Notes you play land in
+the grid, quantised to the current grid resolution. Only channel 1 note-ons
+are recorded. `@` sets the track's drum note to the last note received,
+which is a quick way to pick a drum sound by playing it.
+
+### Chaining patterns into a song
+
+`/` and `?` step through the 26 patterns, `"` copies one to another, `=`
+clears one. `&` opens the song editor: a row of pattern letters, one per
+position. Move with the left and right arrows, type a letter A-Z to place
+a pattern, `.` to stop there, `*` to loop back to the start. ENTER leaves
+the editor. `!` then plays the whole arrangement instead of a single
+pattern.
+
+While a *pattern* is playing, `1`-`8` queue patterns A-G to switch in at
+the end of the current bar - handy for playing an arrangement by hand.
+(Key `4` repeats pattern C rather than giving D; that is a slip inherited
+from the TRS-80 original.)
+
+### Syncing to other gear
+
+`R` cycles the MIDI clock output: off, `C` clock plus start/stop, `B` clock
+plus MMC transport, `M` MMC only. In any of the clock modes the CPC sends
+24 ppqn and everything downstream follows its tempo.
+
+`'` goes the other way - TRACKER then steps on incoming MIDI clock, six
+`&F8` bytes to a 16th note, so a drum machine or a DAW can drive the CPC.
+
+A step pulse also appears on the Centronics data lines at `&EF00` for
+anything that wants a hardware clock.
+
+**Future feature: external clock on the printer port.** The TRS-80 version
+takes its external step pulse off the printer port rather than over MIDI,
+and the CPC could do the same. The seven Centronics *data* lines are
+output only, but the **BUSY line is an input and it is readable** - PPI
+port B, `&F5xx`, bit 6, Centronics pin 11. Measured on an emulated 6128
+over 2000 samples, port B reads `1E` with only bit 0 (VSYNC) changing:
+
+| bit | | |
+|---|---|---|
+| 0 | CRTC VSYNC | toggles |
+| 1-3 | manufacturer | `111`, Amstrad |
+| 4 | refresh rate | `1`, 50 Hz |
+| 5 | cassette in | 0 |
+| **6** | **printer BUSY** | **readable - Centronics pin 11** |
+| 7 | expansion `/EXP` | 0 |
+
+So the hardware is there; it is simply not wired up in the software yet.
+That would let one clock box drive both machines.
+
+### The help page
+
+`H` shows all of it, and any key returns:
+
+![Help page](../../pics/tracker-help.png)
+
+## Keys at a glance
+
+| | |
+|---|---|
+| arrow keys, `Z` `C` | move the cursor a step at a time |
+| `A` `D` | move by the grid resolution |
+| `W` `X` | previous / next track |
+| `1`-`8` | jump to bar - or, while playing, queue that pattern |
+| SPACE | place a note |
+| ENTER, COPY | place a note and sound it |
 | CLR / DEL | clear the step |
 | `P` / `!` | play pattern / play song |
-| `0` | all notes off (MIDI panic) |
+| `0` | all notes off (panic) |
 | `/` `?` | next / previous pattern |
-| `1`-`8` | jump to bar - **or, while a pattern is playing, queue that pattern** |
+| `=` `"` `&` | clear pattern, copy pattern, song editor |
 | `+` `-` | MIDI channel for this track |
-| `U` `I` | GM instrument for this track |
-| `J` `K` | velocity for this track |
-| SHIFT + left/right arrow | drum note for this track |
+| `U` `I` | GM instrument (global) |
+| `J` `K` | velocity |
+| SHIFT + left/right arrow | drum note |
+| `@` | drum note from the last MIDI note received |
 | `*` | gate length |
 | `,` `.` `N` `M` | tempo |
-| `B`, `G` | bar count, grid resolution |
-| `#`, `T` | record, cursor tracking |
-| `R`, `'` | MIDI clock out, external clock in |
-| `&` | song editor |
-| `L` `S` `Q` | load, save, quit |
+| `B` `G` | bar count, grid resolution |
+| `#` `T` | record, cursor tracking |
+| `R` `'` | MIDI clock out, external clock in |
+| `H` `L` `S` `Q` | help, load, save, quit |
 
 The arrow keys and `COPY` are CPC additions; everything else is as it is
 on the TRS-80.
@@ -130,6 +270,7 @@ step where five tracks sound is 15 bytes that need 4.8 ms.
 | `src/midi.asm` | MIDI send/receive, including the byte pacing |
 | `src/fileio.asm` | AMSDOS save/load |
 | `src/font.asm` | generated from `OS_6128.ROM` at &3900 |
+| `PORTING-NOTES.md` | the full engineering log: what was measured, what broke, and why each layer is the way it is |
 
 ## Notes for anyone doing something similar
 

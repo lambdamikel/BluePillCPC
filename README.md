@@ -52,6 +52,29 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Push button
 - BluePill, Adafruit MIDI FeatherWing
 
+## NEW: TRACKER - a MIDI Step Sequencer for the Card
+
+**[TRACKER turns the CPC and the Ultimate MIDI Card into a six track MIDI
+step sequencer](#tracker---a-midi-step-sequencer-for-the-card)** - a full screen pattern editor, 26 patterns chained
+into a song by the built-in arranger, realtime MIDI recording from a
+keyboard plugged into MIDI IN, MIDI clock out, and an accurate BPM
+readout.
+
+![TRACKER](pics/tracker-boogie.png)
+
+Three demo songs are ready to run as [`DSK`](cpc/tracker/dsk/) and
+[`HFE`](cpc/tracker/hfe/) images - just `RUN"TRACKER`, then `L`, `Y`, `P`.
+The Z80 source and build instructions are [in the
+repo](cpc/tracker/) as well.
+
+It is a port of TRACKER 2.00 from
+[MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI card for the
+TRS-80 - the card this one grew out of - and songs interchange between the
+two machines byte for byte. The port was done by
+[Claude](https://claude.com/claude-code) (Anthropic).
+
+**[Read more about TRACKER below.](#tracker---a-midi-step-sequencer-for-the-card)**
+
 ## Manfred Gross' Demo of the Ultimate MIDI Card on the Amstrad CPC 6128 PLUS
 
 Here is the [proof that the Ultimate MIDI Card has no issues
@@ -377,9 +400,19 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 ![TRACKER](pics/tracker-boogie.png)
 
 TRACKER turns the CPC and the Ultimate MIDI Card into a six track MIDI
-step sequencer. It is a port of TRACKER 2.00 from my [MIDI-80 card for
-the TRS-80](https://github.com/lambdamikel/MIDI-80) - which is itself the
-card this one grew out of - so the two have finally met.
+step sequencer. It is a port of **TRACKER 2.00** from
+[MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI sound and
+interface card for the TRS-80 - which is itself the card this one grew
+out of, so the software has come back the other way. The original, its
+Z80 source and its [demo
+songs](https://github.com/lambdamikel/MIDI-80/tree/main/songs) live in
+that repository, and songs interchange between the two machines byte for
+byte.
+
+**The port to the CPC was done by [Claude](https://claude.com/claude-code)
+(Anthropic)**: the display layer, the PSG keyboard scan, the AMSDOS file
+I/O, the timing model, and the generator that produces the CPC source from
+the TRS-80 original.
 
 **Everything is in [`cpc/tracker/`](cpc/tracker/)**: ready to run `DSK`
 and `HFE` images with three demo songs, the full Z80 source, and the
@@ -405,10 +438,16 @@ arrangement rather than the single pattern, and `H` is the help page.
   and `T`, and play - the notes land in the grid, quantised to the
   current grid resolution
 - **MIDI clock out** at 24 ppqn plus MMC transport, so the CPC can drive
-  a drum machine or a DAW; or **external sync in**, so something else
-  can drive the CPC
+  a drum machine or a DAW; or **external sync in** over MIDI clock, so
+  something else can drive the CPC
 - an accurate **BPM readout**, and a step pulse on the Centronics port
   for anything that wants a hardware clock
+
+*Planned:* external clock **in** on the printer port, the way the TRS-80
+version does it. The Centronics data lines are output only, but the BUSY
+line is readable at PPI port B (`&F5xx`) bit 6, so the hardware is there -
+it is just not wired up in the software yet. That would let one clock box
+drive both machines.
 
 ### On the timing
 
