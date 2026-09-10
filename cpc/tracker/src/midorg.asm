@@ -1,10 +1,12 @@
 
 ;; ===================================================================
 ;; MIDORG/CPC  -  MIDI ORGAN V1.1 for the Ultimate MIDI Card
-;; (C)2026 G.PHILLIPS + LAMBDAMIKEL + CLAUDE.  Assembles with rasm.
+;; (C)2026 LAMBDAMIKEL + G.PHILLIPS + CLAUDE.  Assembles with rasm.
 ;;
-;; Play the CPC keyboard as a two manual MIDI organ. This is George
-;; Phillips' TRS-80 program with four things changed:
+;; Play the CPC keyboard as a two manual MIDI organ. Michael Wessel's
+;; TRS-80 program, with the self-modifying keyboard scanner and the
+;; keyboard artwork contributed by George Phillips. Four things change
+;; for the CPC:
 ;;
 ;;   keyboard  the TRS-80 matrix is memory mapped, so "ld a,($3801)" is a
 ;;             row of keys. The CPC's sits behind the PSG, so the whole
@@ -68,7 +70,7 @@ kso1:
 
 kbdmapi:    defs 10
 
-title:	defb   "* ULT.MIDI CARD ORGAN V1.1 (C)2026 PHILLIPS+LAMBDAMIKEL+CLAUDE *"
+title:	defb   "* ULT.MIDI CARD ORGAN V1.1 (C)2026 LAMBDAMIKEL+PHILLIPS+CLAUDE *"
 	defb   "----------------------------------------------------------------"
 	defb   "   _____ _____       _____ _____ _____       _____ _____        "
 	defb   "   |*c'# |*d'#|    |*f'# |*g'# |*a'# |     |*c''#|*d''#|        "

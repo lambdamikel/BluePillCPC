@@ -298,10 +298,12 @@ step where five tracks sound is 15 bytes that need 4.8 ms.
 
 ## Status
 
-Written and verified under MAME, then tested on real hardware. Load,
-playback, the editor, song mode, MIDI clock out and external sync all
-work. Saving with `S` writes correct bytes to the floppy controller but
-has had less testing than the rest.
+**Confirmed working on real hardware** - a CPC 6128 with the Ultimate MIDI
+Card. Load, playback, the editor, song mode, MIDI clock out and external
+sync all work, and so does [MIDORG](MIDORG.md).
+
+Saving with `S` writes the correct bytes to the floppy controller but has
+had less testing than the rest.
 
 Songs interchange with the TRS-80 version: the data segment is byte for
 byte the same, so a `DUMP` written on one machine loads on the other.

@@ -59,12 +59,14 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   keyboard are the lower manual, the top two the upper, each on its own
   MIDI channel with its own octave, instrument and volume. Hold as many
   keys as you like; the key boxes on screen light up solid while they
-  sound. It is George Phillips' MIDORG from
-  [MIDI/80](https://github.com/lambdamikel/MIDI-80), ported by
-  [Claude](https://claude.com/claude-code) (Anthropic), and it is on the
-  same discs as TRACKER - just `RUN"MIDORG`.
+  sound. It is my MIDORG from
+  [MIDI/80](https://github.com/lambdamikel/MIDI-80) - with the
+  self-modifying keyboard scanner, the ASCII keyboard artwork and the key
+  highlighting contributed by George Phillips - ported to the CPC by
+  [Claude](https://claude.com/claude-code) (Anthropic). It is on the same
+  discs as TRACKER: just `RUN"MIDORG`.
 
-![MIDORG](pics/midorg.png)
+  ![MIDORG](pics/midorg.png)
 
 - 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
   available for the card](cpc/tracker/)** - a full screen pattern
@@ -80,21 +82,9 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   well](cpc/tracker/). Written together with Claude (Anthropic).
   **[More about TRACKER further down.](#tracker---a-midi-step-sequencer-for-the-card)**
 
-![TRACKER](pics/tracker-boogie.png)
+  ![TRACKER](pics/tracker-boogie.png)
 
 ## Older News
-
-- "The Amstrad Noob" did a [very nice review of the
-  card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are
-  enjoying it!
-
-![Amstrad Noob](pics/noob.jpg)
-
-- And here a [review in German by "My Electronics
-  Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dass
-  alles so gut geklappt hat mit dem Zusammenbau.
-
-![Schneiderlein 1](pics/schneiderlein1.png)
 
 - 4/28/2024: Another great demo video with the [X2GS sound module on
   the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe)
@@ -122,9 +112,21 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   stuff!
   
 
+- 9/21/2022: a [review in German by "My Electronics
+  Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dass
+  alles so gut geklappt hat mit dem Zusammenbau.
+
+  ![Schneiderlein 1](pics/schneiderlein1.png)
+
 - 3/1/2022: the Python converter is available now.
 
-![Converter](pics/converter.png) 
+  ![Converter](pics/converter.png) 
+
+- 2/13/2022: "The Amstrad Noob" did a [very nice review of the
+  card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are
+  enjoying it!
+
+  ![Amstrad Noob](pics/noob.jpg)
 
 - 1/26/2022: first steps with the Python-based MID->BIN converter to
 create complex MIDI content for the card.  Support of the CPC 6128
@@ -150,43 +152,42 @@ The friends from
 [Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
 also posted my update - thanks, guys!
 
-![Matrixsynth New](pics/matrixsynth4.png) 
+  ![Matrixsynth New](pics/matrixsynth4.png) 
 
  
+
 - 6/23/2021: First batch produced and sold! 
 
-![First Batch](pics/first-batch.jpg) 
-
+  ![First Batch](pics/first-batch.jpg) 
 
 - 6/19/2021: The Prototype PCBs are working! 
 
-![Pic PCB 1](pics/board-1.jpg) 
-![Pic PCB 2](pics/board-2.jpg) 
-![Pic PCB 3](pics/board-3.jpg) 
-![Pic PCB 4](pics/board-4.jpg) 
-![Pic PCB 5](pics/board-5.jpg) 
+  ![Pic PCB 1](pics/board-1.jpg) 
+  ![Pic PCB 2](pics/board-2.jpg) 
+  ![Pic PCB 3](pics/board-3.jpg) 
+  ![Pic PCB 4](pics/board-4.jpg) 
+  ![Pic PCB 5](pics/board-5.jpg) 
 
 - 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
 
-![PCB 1](pics/pcb.png) 
-![PCB 2](pics/pcb2.png) 
+  ![PCB 1](pics/pcb.png) 
+  ![PCB 2](pics/pcb2.png) 
 
+- 6/3/2021: the breadboard prototype. prototype:
+
+  ![Pic 1](pics/breadboard2.jpg) 
+
+  ![Pic 2](pics/breadboard.jpg) 
+
+  ![Pic 3](pics/pic4.jpg) 
 
 - 6/1/2021: The project was featured by Matrixsynth. 
 
-![Maxrix 1](pics/matrixsynth1.png) 
+  ![Maxrix 1](pics/matrixsynth1.png) 
 
-![Maxrix 2](pics/matrixsynth3.png) 
+  ![Maxrix 2](pics/matrixsynth3.png) 
 
-![Maxrix 3](pics/matrixsynth3.png) 
-
-- Before all that, the breadboard prototype:
-
-![Pic 1](pics/breadboard2.jpg) 
-
-![Pic 2](pics/breadboard.jpg) 
-
-![Pic 3](pics/pic4.jpg) 
+  ![Maxrix 3](pics/matrixsynth3.png) 
 
 ## YouTube Demos
 
@@ -560,11 +561,16 @@ you can set up two sounds and play them against each other. Hold as many
 keys as you like - every note is tracked independently, and the key box on
 screen fills in solid while it sounds. `RUN"MIDORG`, and `ESC` quits.
 
-This is George Phillips' MIDORG from MIDI/80, and the clever part came
-across untouched: each key test ends in `call nz,key_down`, and the
-handler rewrites those three bytes in place to `call z,key_up`, so the
-instruction that started a note becomes the one watching for its release.
-There is no key-state table anywhere in the program.
+MIDORG is mine, from MIDI/80; George Phillips contributed the
+self-modifying keyboard scanner, the ASCII keyboard artwork and the key
+highlighting. That scanner came across untouched, and it is worth a look:
+each key test ends in `call nz,key_down`, and the handler rewrites those
+three bytes in place to `call z,key_up`, so the instruction that started a
+note becomes the one watching for its release. There is no key-state table
+anywhere in the program.
+
+Both TRACKER and MIDORG are **confirmed working on real hardware** - a CPC
+6128 with the card.
 
 ### One thing worth knowing if you write MIDI code for the card
 

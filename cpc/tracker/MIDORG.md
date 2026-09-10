@@ -5,9 +5,11 @@ press them.
 
 ![MIDORG on a CPC 6128](../../pics/midorg.png)
 
-Ported from George Phillips' MIDORG for
+MIDORG is by **Michael Wessel**, written for
 [MIDI/80](https://github.com/lambdamikel/MIDI-80), the TRS-80 card this
-one grew out of. The port to the CPC was done by
+one grew out of. **George Phillips** contributed the self-modifying
+keyboard scanner, the ASCII keyboard artwork and the key highlighting.
+The port to the CPC was done by
 [Claude](https://claude.com/claude-code) (Anthropic).
 
     RUN"MIDORG
@@ -39,6 +41,29 @@ sounds.
 | left / right arrow | GM instrument down / up |
 | up / down arrow | volume up / down |
 | ESC | quit (resets the machine) |
+
+### Keys at a glance
+
+| key | what it does |
+|---|---|
+| `Z X C V B N M , . /` | lower manual, white keys, c to e' |
+| `S D  G H J  L ;` | lower manual, black keys |
+| `Q W E R T Y U I O P @` | upper manual, white keys, c' to f'' |
+| `2 3  5 6 7  9 0` | upper manual, black keys |
+| `A` / `F` | lower manual octave down / up |
+| `1` / `4` | upper manual octave down / up |
+| SPACE | switch which manual the four controls below affect |
+| RETURN / SHIFT | MIDI channel up / down |
+| right / left arrow | GM instrument up / down |
+| up / down arrow | volume up / down |
+| ESC | quit, resets to BASIC |
+
+`BREAK` becomes `ESC`, since the CPC has no BREAK key; everything else is
+where it is on the TRS-80.
+
+Note the arrows mean something **different** in TRACKER on the same discs
+- there they move the edit cursor - so muscle memory does not carry
+between the two programs.
 
 The status line shows `OCT/CHANNEL/INSTRUMENT/VOLUME` for both manuals in
 hex, with `<...>` marking the one SPACE has selected.
@@ -100,9 +125,12 @@ into the middle of other routines.
 **A leading `(` is memory addressing.** `ld (iy-1),(label >> 8)` is read
 as an indirect load, not an immediate. Write `ld (iy-1),label >> 8`.
 
-## Verified
+## Status
 
-Under MAME, driving the key matrix directly:
+**Confirmed working on real hardware** - a CPC 6128 with the Ultimate MIDI
+Card.
+
+Verified under MAME as well, driving the key matrix directly:
 
 | | |
 |---|---|
@@ -112,5 +140,3 @@ Under MAME, driving the key matrix directly:
 | `Z`+`B` together | both notes on, both off - polyphony holds |
 | octave, instrument, volume, channel | all step correctly, and program changes go out on both channels |
 | `ESC` | resets to a clean BASIC `Ready` |
-
-Not yet played on real hardware.
