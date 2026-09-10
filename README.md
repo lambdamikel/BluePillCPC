@@ -75,27 +75,128 @@ two machines byte for byte. The port was done by
 
 **[Read more about TRACKER below.](#tracker---a-midi-step-sequencer-for-the-card)**
 
-## Manfred Gross' Demo of the Ultimate MIDI Card on the Amstrad CPC 6128 PLUS
+## Latest News
 
-Here is the [proof that the Ultimate MIDI Card has no issues
-whatsoever with the CPC Plus range of computers - even if the
-expansion port is routed through a SCSI A/B selector switch with a
-very long SCSI cable.](https://youtu.be/XsebWLakPO8)
+- 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
+  available for the card](cpc/tracker/)** - a full screen pattern
+  editor with a song arranger, MIDI clock out, external sync, and
+  realtime MIDI recording from a keyboard plugged into MIDI IN. It is a
+  port of TRACKER 2.00 from my [MIDI-80 card for the
+  TRS-80](https://github.com/lambdamikel/MIDI-80), and songs
+  interchange between the two machines byte for byte. Three demo songs
+  are included as ready to run [`DSK`](cpc/tracker/dsk/) and
+  [`HFE`](cpc/tracker/hfe/) images - just `RUN"TRACKER`, then `L`, `Y`,
+  `P`. The Z80 source, the generator that produces it from the TRS-80
+  original, and build instructions are [in the repo as
+  well](cpc/tracker/). Written together with Claude (Anthropic).
+
+![TRACKER](pics/tracker-boogie.png)
+
+- "The Amstrad Noob" did a [very nice review of the
+  card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are
+  enjoying it!
+
+![Amstrad Noob](pics/noob.jpg)
+
+- And here a [review in German by "My Electronics
+  Hobby".](https://youtu.be/5S0j8zkGRL4) DankeschÃ¶n, Werner! SchÃ¶n, dass
+  alles so gut geklappt hat mit dem Zusammenbau.
+
+![Schneiderlein 1](pics/schneiderlein1.png)
+
+- 4/28/2024: Another great demo video with the [X2GS sound module on
+  the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe)
+
+- 4/28/2024: CPC enthusiast [Manfred
+  Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
+  Board with his 6128
+  Plus](https://www.youtube.com/watch?v=XsebWLakPO8), demonstrating
+  that the card is working fine with his 6126 Plus. A previous
+  customer had reported that the card wouldn't work with his Plus -
+  this report was the reason why I listed the CPC Plus range as
+  officially unsupported by the card. So, as always: your milage may
+  vary - I personally don't see a reason why the card wouldn't work
+  with the Plus. But it may not always be so straight-forward with 40
+  year old hardware. Here is the [proof that the Ultimate MIDI Card has
+  no issues whatsoever with the CPC Plus range of computers - even if
+  the expansion port is routed through a SCSI A/B selector switch with
+  a very long SCSI cable.](https://youtu.be/XsebWLakPO8)
+
+- 8/31/2023: CPC enthusiast [Manfred
+  Gross](https://youtu.be/c94lG-UYBnE) has created 19 (!) DSK images
+  with fresh MIDI songs for the Ultimate MIDI Card and allowed me to
+  share them with you - [here you go!](cpc/manfredgross/).  He used
+  the [`PythonConverter`](PythonConverter/).  Thanks Manfred, great
+  stuff!
+  
+
+## Older News
+
+- 3/1/2022: the Python converter is available now.
+
+![Converter](pics/converter.png) 
+
+- 1/26/2022: first steps with the Python-based MID->BIN converter to
+create complex MIDI content for the card.  Support of the CPC 6128
+extended memory and DK'tronics "standard" 512 KB memory expansion.
+
+- 9/15/2021: 3 more devices have been sold, and a "Howto - First
+  Steps" section was added to this README.
+
+- 7/1/2021: MIDI Data Stream Recorder implemented - I can now record &
+  play back complex GM MIDI songs from the CPC memory. As usual, the
+  Z80 assembler source code of the [MIDI recorder & playback program
+  and a number of BIN song files are in the repo](cpc/ULTMIDI2.dsk). A
+  demo of the program and the 8 song `BIN`s is on YouTube: [Standalone
+  CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg). I expect this kind
+  of "MIDI data playback from CPC memory" to be the main application
+  for the card, so most people will just use it as a MIDI sound card
+  for their CPCs. However, unlike other MIDI sound cards, you can
+  effortlessly create MIDI songs simply by recording the MIDI stream;
+  hence, content / song creation for the card is literally effortless
+  if you have a PC USB MIDI cable.
+
+The friends from
+[Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
+also posted my update - thanks, guys!
+
+![Matrixsynth New](pics/matrixsynth4.png) 
+
+ 
+- 6/23/2021: First batch produced and sold! 
+
+![First Batch](pics/first-batch.jpg) 
 
 
-## Review by "My Electronics Hobby" (in German)
+- 6/19/2021: The Prototype PCBs are working! 
 
-And here a [review in German by "My Electronics
-Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dassw
-alles so gut geklappt hat mit dem Zusammenbau.
+![Pic PCB 1](pics/board-1.jpg) 
+![Pic PCB 2](pics/board-2.jpg) 
+![Pic PCB 3](pics/board-3.jpg) 
+![Pic PCB 4](pics/board-4.jpg) 
+![Pic PCB 5](pics/board-5.jpg) 
 
-![Schneiderlein 1](pics/schneiderlein1.png) 
+- 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
 
-## Review by "The Amstrad Noob" 
+![PCB 1](pics/pcb.png) 
+![PCB 2](pics/pcb2.png) 
 
-"The Amstrad Noob" did a [very nice review of the card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are enjoying it!
 
-![Amstrad Noob](pics/noob.jpg) 
+- 6/1/2021: The project was featured by Matrixsynth. 
+
+![Maxrix 1](pics/matrixsynth1.png) 
+
+![Maxrix 2](pics/matrixsynth3.png) 
+
+![Maxrix 3](pics/matrixsynth3.png) 
+
+- Before all that, the breadboard prototype:
+
+![Pic 1](pics/breadboard2.jpg) 
+
+![Pic 2](pics/breadboard.jpg) 
+
+![Pic 3](pics/pic4.jpg) 
 
 ## YouTube Demos
 
@@ -140,27 +241,6 @@ Some more videos:
 [DIN MIDI IN to S2 / General Midi MID Playback](https://youtu.be/xLs3ZQm0AvA)
 
 [Sending MIDI Data from the CPC to the S2](https://youtu.be/EcW2L8-IfYQ)
-
-## First Batch Ready!
-
-![First Batch](pics/first-batch.jpg) 
-
-## Prototype PCB 
-
-![Pic PCB 1](pics/board-1.jpg) 
-![Pic PCB 2](pics/board-2.jpg) 
-![Pic PCB 3](pics/board-3.jpg) 
-![Pic PCB 4](pics/board-4.jpg) 
-![Pic PCB 5](pics/board-5.jpg) 
-
-
-## Breadboard Pics
-
-![Pic 1](pics/breadboard2.jpg) 
-
-![Pic 2](pics/breadboard.jpg) 
-
-![Pic 3](pics/pic4.jpg) 
 
 ## DIL Switch 
 
@@ -484,102 +564,6 @@ the six program changes at the start of playback are 12 bytes needing
 3.8 ms. If you are sending back to back MIDI bytes from the CPC, put the
 wait in your byte-out routine, not at the call sites - that way the
 clock bytes and the panic messages get it too.
-
-## Latest News
-
-- 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
-  available for the card](cpc/tracker/)** - a full screen pattern
-  editor with a song arranger, MIDI clock out, external sync, and
-  realtime MIDI recording from a keyboard plugged into MIDI IN. It is a
-  port of TRACKER 2.00 from my [MIDI-80 card for the
-  TRS-80](https://github.com/lambdamikel/MIDI-80), and songs
-  interchange between the two machines byte for byte. Three demo songs
-  are included as ready to run [`DSK`](cpc/tracker/dsk/) and
-  [`HFE`](cpc/tracker/hfe/) images - just `RUN"TRACKER`, then `L`, `Y`,
-  `P`. The Z80 source, the generator that produces it from the TRS-80
-  original, and build instructions are [in the repo as
-  well](cpc/tracker/). Written together with Claude (Anthropic).
-
-![TRACKER](pics/tracker-boogie.png)
-
-- 4/28/2024: Another great demo video with the [X2GS sound module on
-  the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe)
-
-- 4/28/2024: CPC enthusiast [Manfred
-  Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
-  Board with his 6128
-  Plus](https://www.youtube.com/watch?v=XsebWLakPO8), demonstrating
-  that the card is working fine with his 6126 Plus. A previous
-  customer had reported that the card wouldn't work with his Plus -
-  this report was the reason why I listed the CPC Plus range as
-  officially unsupported by the card. So, as always: your milage may
-  vary - I personally don't see a reason why the card wouldn't work
-  with the Plus. But it may not always be so straight-forward with 40
-  year old hardware.
-
-- 8/31/2023: CPC enthusiast [Manfred
-  Gross](https://youtu.be/c94lG-UYBnE) has created 19 (!) DSK images
-  with fresh MIDI songs for the Ultimate MIDI Card and allowed me to
-  share them with you - [here you go!](cpc/manfredgross/).  He used
-  the [`PythonConverter`](PythonConverter/).  Thanks Manfred, great
-  stuff!
-  
-
-## Older News
-
-- 3/1/2022: the Python converter is available now.
-
-![Converter](pics/converter.png) 
-
-- 1/26/2022: first steps with the Python-based MID->BIN converter to
-create complex MIDI content for the card.  Support of the CPC 6128
-extended memory and DK'tronics "standard" 512 KB memory expansion.
-
-- 9/15/2021: 3 more devices have been sold, and a "Howto - First
-  Steps" section was added to this README.
-
-- 7/1/2021: MIDI Data Stream Recorder implemented - I can now record &
-  play back complex GM MIDI songs from the CPC memory. As usual, the
-  Z80 assembler source code of the [MIDI recorder & playback program
-  and a number of BIN song files are in the repo](cpc/ULTMIDI2.dsk). A
-  demo of the program and the 8 song `BIN`s is on YouTube: [Standalone
-  CPC MIDI Playback](https://youtu.be/9-n1bf7yXhg). I expect this kind
-  of "MIDI data playback from CPC memory" to be the main application
-  for the card, so most people will just use it as a MIDI sound card
-  for their CPCs. However, unlike other MIDI sound cards, you can
-  effortlessly create MIDI songs simply by recording the MIDI stream;
-  hence, content / song creation for the card is literally effortless
-  if you have a PC USB MIDI cable.
-
-The friends from
-[Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
-also posted my update - thanks, guys!
-
-![Matrixsynth New](pics/matrixsynth4.png) 
-
- 
-- 6/23/2021: First batch produced and sold! 
-
-![First Batch](pics/first-batch.jpg) 
-
-
-- 6/19/2021: The Prototype PCBs are working! 
-
-![Pic PCB 1](pics/board-1.jpg) 
-
-- 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
-
-![PCB 1](pics/pcb.png) 
-![PCB 2](pics/pcb2.png) 
-
-
-- 6/1/2021: The project was featured by Matrixsynth. 
-
-![Maxrix 1](pics/matrixsynth1.png) 
-
-![Maxrix 2](pics/matrixsynth3.png) 
-
-![Maxrix 3](pics/matrixsynth3.png) 
 
 ## About
 
