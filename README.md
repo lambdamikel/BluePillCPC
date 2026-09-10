@@ -542,9 +542,3 @@ the six program changes at the start of playback are 12 bytes needing
 3.8 ms. If you are sending back to back MIDI bytes from the CPC, put the
 wait in your byte-out routine, not at the call sites - that way the
 clock bytes and the panic messages get it too.
-
-## About
-
-Soon! 
-
-
