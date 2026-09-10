@@ -110,7 +110,6 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   share them with you - [here you go!](cpc/manfredgross/).  He used
   the [`PythonConverter`](PythonConverter/).  Thanks Manfred, great
   stuff!
-  
 
 - 9/21/2022: a [review in German by "My Electronics
   Hobby".](https://youtu.be/5S0j8zkGRL4) Dankeschön, Werner! Schön, dass
@@ -120,7 +119,7 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 - 3/1/2022: the Python converter is available now.
 
-  ![Converter](pics/converter.png) 
+  ![Converter](pics/converter.png)
 
 - 2/13/2022: "The Amstrad Noob" did a [very nice review of the
   card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are
@@ -129,8 +128,8 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   ![Amstrad Noob](pics/noob.jpg)
 
 - 1/26/2022: first steps with the Python-based MID->BIN converter to
-create complex MIDI content for the card.  Support of the CPC 6128
-extended memory and DK'tronics "standard" 512 KB memory expansion.
+  create complex MIDI content for the card.  Support of the CPC 6128
+  extended memory and DK'tronics "standard" 512 KB memory expansion.
 
 - 9/15/2021: 3 more devices have been sold, and a "Howto - First
   Steps" section was added to this README.
@@ -148,46 +147,44 @@ extended memory and DK'tronics "standard" 512 KB memory expansion.
   hence, content / song creation for the card is literally effortless
   if you have a PC USB MIDI cable.
 
-The friends from
-[Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
-also posted my update - thanks, guys!
+  The friends from
+  [Matrixsynth](https://www.matrixsynth.com/2021/07/the-ultimate-cpc-midi-soundcard.html)
+  also posted my update - thanks, guys!
 
-  ![Matrixsynth New](pics/matrixsynth4.png) 
-
- 
+  ![Matrixsynth New](pics/matrixsynth4.png)
 
 - 6/23/2021: First batch produced and sold! 
 
-  ![First Batch](pics/first-batch.jpg) 
+  ![First Batch](pics/first-batch.jpg)
 
 - 6/19/2021: The Prototype PCBs are working! 
 
-  ![Pic PCB 1](pics/board-1.jpg) 
-  ![Pic PCB 2](pics/board-2.jpg) 
-  ![Pic PCB 3](pics/board-3.jpg) 
-  ![Pic PCB 4](pics/board-4.jpg) 
-  ![Pic PCB 5](pics/board-5.jpg) 
+  ![Pic PCB 1](pics/board-1.jpg)
+  ![Pic PCB 2](pics/board-2.jpg)
+  ![Pic PCB 3](pics/board-3.jpg)
+  ![Pic PCB 4](pics/board-4.jpg)
+  ![Pic PCB 5](pics/board-5.jpg)
 
 - 6/11/2021: The Prototype PCBs have been designed and are currently in production. 
 
-  ![PCB 1](pics/pcb.png) 
-  ![PCB 2](pics/pcb2.png) 
+  ![PCB 1](pics/pcb.png)
+  ![PCB 2](pics/pcb2.png)
 
 - 6/3/2021: the breadboard prototype. prototype:
 
-  ![Pic 1](pics/breadboard2.jpg) 
+  ![Pic 1](pics/breadboard2.jpg)
 
-  ![Pic 2](pics/breadboard.jpg) 
+  ![Pic 2](pics/breadboard.jpg)
 
-  ![Pic 3](pics/pic4.jpg) 
+  ![Pic 3](pics/pic4.jpg)
 
 - 6/1/2021: The project was featured by Matrixsynth. 
 
-  ![Maxrix 1](pics/matrixsynth1.png) 
+  ![Maxrix 1](pics/matrixsynth1.png)
 
-  ![Maxrix 2](pics/matrixsynth3.png) 
+  ![Maxrix 2](pics/matrixsynth3.png)
 
-  ![Maxrix 3](pics/matrixsynth3.png) 
+  ![Maxrix 3](pics/matrixsynth3.png)
 
 ## YouTube Demos
 
