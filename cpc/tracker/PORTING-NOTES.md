@@ -23,7 +23,8 @@ compatibility, so there is no reason to target the bare 464.
 | External sync in | works, as MIDI beat clock |
 | Editor, song mode, help, quit | work |
 
-Everything above is measured under MAME. 
+Everything above is measured under MAME, and **confirmed working on a real
+CPC 6128** with the card.
 
 ## Running it
 
