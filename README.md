@@ -52,29 +52,6 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - Push button
 - BluePill, Adafruit MIDI FeatherWing
 
-## NEW: TRACKER - a MIDI Step Sequencer for the Card
-
-**[TRACKER turns the CPC and the Ultimate MIDI Card into a six track MIDI
-step sequencer](#tracker---a-midi-step-sequencer-for-the-card)** - a full screen pattern editor, 26 patterns chained
-into a song by the built-in arranger, realtime MIDI recording from a
-keyboard plugged into MIDI IN, MIDI clock out, and an accurate BPM
-readout.
-
-![TRACKER](pics/tracker-boogie.png)
-
-Three demo songs are ready to run as [`DSK`](cpc/tracker/dsk/) and
-[`HFE`](cpc/tracker/hfe/) images - just `RUN"TRACKER`, then `L`, `Y`, `P`.
-The Z80 source and build instructions are [in the
-repo](cpc/tracker/) as well.
-
-It is a port of TRACKER 2.00 from
-[MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI card for the
-TRS-80 - the card this one grew out of - and songs interchange between the
-two machines byte for byte. The port was done by
-[Claude](https://claude.com/claude-code) (Anthropic).
-
-**[Read more about TRACKER below.](#tracker---a-midi-step-sequencer-for-the-card)**
-
 ## Latest News
 
 - 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
@@ -89,8 +66,11 @@ two machines byte for byte. The port was done by
   `P`. The Z80 source, the generator that produces it from the TRS-80
   original, and build instructions are [in the repo as
   well](cpc/tracker/). Written together with Claude (Anthropic).
+  **[More about TRACKER further down.](#tracker---a-midi-step-sequencer-for-the-card)**
 
 ![TRACKER](pics/tracker-boogie.png)
+
+## Older News
 
 - "The Amstrad Noob" did a [very nice review of the
   card](https://youtu.be/bQPLyFjDLsk) - thanks much, Niall, glad you are
@@ -129,8 +109,6 @@ two machines byte for byte. The port was done by
   the [`PythonConverter`](PythonConverter/).  Thanks Manfred, great
   stuff!
   
-
-## Older News
 
 - 3/1/2022: the Python converter is available now.
 
