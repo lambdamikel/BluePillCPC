@@ -23,8 +23,7 @@ compatibility, so there is no reason to target the bare 464.
 | External sync in | works, as MIDI beat clock |
 | Editor, song mode, help, quit | work |
 
-Everything above is measured under MAME. **Nothing has been run on real
-hardware yet.**
+Everything above is measured under MAME. 
 
 ## Running it
 
