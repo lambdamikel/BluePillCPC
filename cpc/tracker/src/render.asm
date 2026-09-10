@@ -173,9 +173,9 @@ markclean:
 ;; The help page is the opposite: 16 solid lines of text that want no
 ;; gaps at all. So there are two maps and setrows swaps them.
 ;;
-;;   sequencer                        help page
-;;   title             ->  2          banner       ->  2
-;;   status            ->  4          15 body lines ->  5..19
+;;   sequencer                        help page        MIDORG
+;;   title             ->  2          banner  ->  2     all 16 rows
+;;   status            ->  4          body    ->  5..19  -> 4..19
 ;;   ruler, bars 1-4   ->  6
 ;;   tracks 1-6        ->  7..12
 ;;   ruler, bars 5-8   ->  15
@@ -210,6 +210,13 @@ rowflat:
     ROW 2                        ; the banner, then a gap
     repeat VROWS-1, N
     defw SCRBASE + (N+4)*SCRCOLS + XOFF
+    rend
+
+;; A third map: sixteen consecutive rows, centred. MIDORG's artwork is one
+;; solid block of keyboard diagram and wants no gaps anywhere.
+rowplain:
+    repeat VROWS, N
+    defw SCRBASE + (N+3)*SCRCOLS + XOFF
     rend
 
 ;; make the map at HL live: the two use different screen rows, so the
@@ -362,3 +369,18 @@ rs3:
 
 slice:    defb 0
 rendered: defb 0            ; cells drawn by the last renderslice
+
+;; ---------------------------------------------------------------
+;; renderrun - push BC cells starting at HL straight to the screen.
+;; For the places that write the buffer and then block, or that have no
+;; main loop running the incremental scan at all, so it would never get
+;; its turn. Marks them clean, so the scan will not redraw them.
+;; ---------------------------------------------------------------
+renderrun:
+    call rendercellc
+    inc hl
+    dec bc
+    ld a,b
+    or c
+    jr nz,renderrun
+    ret

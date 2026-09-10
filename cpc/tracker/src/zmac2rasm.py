@@ -60,7 +60,10 @@ def convert(text):
                    r'\1\2 a,\3', c.rstrip(), flags=re.I)
 
         # --- ld a,(ix) needs an explicit displacement -------------------
-        c = re.sub(r'\((i[xy])\)', r'(\1+0)', c, flags=re.I)
+        # ... but "jp (iy)" is a jump through the register, not an indexed
+        # load, and rasm rejects "jp (iy+0)".
+        if not re.match(r'\s*jp\b', c, flags=re.I):
+            c = re.sub(r'\((i[xy])\)', r'(\1+0)', c, flags=re.I)
 
         out.append(c + (sep + comment if sep else ''))
     return '\n'.join(out)

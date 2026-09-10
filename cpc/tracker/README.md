@@ -18,6 +18,9 @@ the TRS-80 original.
 
 ![TRACKER on a CPC 6128](../../pics/tracker-boogie.png)
 
+There is also **[MIDORG](MIDORG.md)**, a two manual MIDI organ that plays
+the CPC keyboard, on the same discs.
+
 ## Just run it
 
 `dsk/` and `hfe/` each hold three ready to run discs, one per demo song.
@@ -199,6 +202,8 @@ Needs [rasm](https://github.com/EdouardBERGE/rasm) and
     cd src
     python3 mktracker.py          # tracker7.asm -> tracker.asm
     rasm tracker.asm              # -> TRACKER.BIN, with an AMSDOS header
+    python3 mkmidorg.py           # and the same for the organ
+    rasm midorg.asm               # -> MIDORG.BIN
 
 then put it on a disc together with a song:
 
@@ -270,6 +275,7 @@ step where five tracks sound is 15 bytes that need 4.8 ms.
 | `src/midi.asm` | MIDI send/receive, including the byte pacing |
 | `src/fileio.asm` | AMSDOS save/load |
 | `src/font.asm` | generated from `OS_6128.ROM` at &3900 |
+| `src/mkmidorg.py`, `src/midorg7.asm` | the same, for [MIDORG](MIDORG.md) |
 | `PORTING-NOTES.md` | the full engineering log: what was measured, what broke, and why each layer is the way it is |
 
 ## Notes for anyone doing something similar

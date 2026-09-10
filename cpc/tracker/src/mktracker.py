@@ -891,20 +891,6 @@ wHL1:
     jr nz,wHL1
     ret
 
-;; ---------------------------------------------------------------
-;; renderrun - push BC cells starting at HL straight to the screen.
-;; For the places that write the buffer and then block on waitkey, where
-;; the incremental scan in the main loop would never get its turn.
-;; ---------------------------------------------------------------
-renderrun:
-    call rendercellc
-    inc hl
-    dec bc
-    ld a,b
-    or c
-    jr nz,renderrun
-    ret
-
 ;;
 ;; data region
 ;;

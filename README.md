@@ -54,6 +54,18 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ## Latest News
 
+- 9/10/2026: **[MIDORG, a two manual MIDI organ, plays the CPC keyboard
+  through the card](cpc/tracker/MIDORG.md)** - the bottom two rows of the
+  keyboard are the lower manual, the top two the upper, each on its own
+  MIDI channel with its own octave, instrument and volume. Hold as many
+  keys as you like; the key boxes on screen light up solid while they
+  sound. It is George Phillips' MIDORG from
+  [MIDI/80](https://github.com/lambdamikel/MIDI-80), ported by
+  [Claude](https://claude.com/claude-code) (Anthropic), and it is on the
+  same discs as TRACKER - just `RUN"MIDORG`.
+
+![MIDORG](pics/midorg.png)
+
 - 9/9/2026: **[TRACKER, a six track MIDI step sequencer, is now
   available for the card](cpc/tracker/)** - a full screen pattern
   editor with a song arranger, MIDI clock out, external sync, and
@@ -529,6 +541,30 @@ averaged over 420 steps:
 
 The step period is deliberately matched to the TRS-80's, so a song plays
 at the same tempo on either machine.
+
+### MIDORG - the organ
+
+The same discs also carry **[MIDORG](cpc/tracker/MIDORG.md)**, which turns
+the CPC keyboard into a two manual MIDI organ:
+
+![MIDORG](pics/midorg.png)
+
+    upper   2 3   5 6 7   9 0        black keys
+            Q W E R T Y U I O P @    white keys, c' to f''
+
+    lower   S D   G H J   L ;        black keys
+            Z X C V B N M , . /      white keys, c to e'
+
+Each manual has its own MIDI channel, octave, instrument and volume, so
+you can set up two sounds and play them against each other. Hold as many
+keys as you like - every note is tracked independently, and the key box on
+screen fills in solid while it sounds. `RUN"MIDORG`, and `ESC` quits.
+
+This is George Phillips' MIDORG from MIDI/80, and the clever part came
+across untouched: each key test ends in `call nz,key_down`, and the
+handler rewrites those three bytes in place to `call z,key_up`, so the
+instruction that started a note becomes the one watching for its release.
+There is no key-state table anywhere in the program.
 
 ### One thing worth knowing if you write MIDI code for the card
 
