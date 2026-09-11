@@ -182,7 +182,7 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
   ![Matrixsynth 1](pics/matrixsynth1.png)
 
-  ![Matrixsynth 2](pics/matrixsynth3.png)
+  ![Matrixsynth 2](pics/matrixsynth2.png)
 
   ![Matrixsynth 3](pics/matrixsynth3.png)
 

@@ -122,6 +122,11 @@ a pattern, `.` to stop there, `*` to loop back to the start. ENTER leaves
 the editor. `!` then plays the whole arrangement instead of a single
 pattern.
 
+The song row sits where the status line normally is, with the current
+position marked:
+
+![Song editor](../../pics/tracker-songedit.png)
+
 While a *pattern* is playing, `1`-`8` queue patterns A-G to switch in at
 the end of the current bar - handy for playing an arrangement by hand.
 (Key `4` repeats pattern C rather than giving D; that is a slip inherited
