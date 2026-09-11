@@ -15,7 +15,7 @@ Features:
 
 - CPC MIDI Soundcard for the S2, X2GS, EWave, or QWave GM MIDI modules from Serdashop 
 - CPC can send MIDI data over output port `&FBEE` to the MIDI module 
-- MIDI IN and MIDI OUT via Adadfruit Midifeather (standard MIDI DIN sockets) 
+- MIDI IN and MIDI OUT via Adafruit Midifeather (standard MIDI DIN sockets) 
 - MIDI IN to the CPC: check for new MIDI byte on input port `&FBFE` and fetch pending byte from buffer via `&FBEE`
 - MIDI soft through option: all incoming MIDI data (from CPC or MIDI IN) can be forwarded / relayed to the MIDI OUT socket ("MIDI SOFT THRU")
 - CPC MIDI Synthesizer software in machine code (MIDI INPUT demo)  
@@ -23,10 +23,10 @@ Features:
 - [TRACKER, a six track MIDI step sequencer](cpc/tracker/) for the card, with a full screen pattern editor, song arranger, MIDI clock out and realtime MIDI recording (MIDI INPUT + OUTPUT)
 - "Lazy engineering": MX4 compatible CPC extension board using three
 sockets, one for the Blue Pill, one for the S2, one for the optional Midifeather.
-- Only one additional chip required - a GAL22V10 programmed as an address decoder. The Blue Bill does not have enough 5V-compatible GPIO ports to do the
-decoding fully in sofware
+- Only one additional chip required - a GAL22V10 programmed as an address decoder. The Blue Pill does not have enough 5V-compatible GPIO ports to do the
+decoding fully in software
 - Everything else is done purely in software - unlike LambdaSpeak, no additional glue logic is required to manage the databus (e.g., no flip flop to latch 
-the databus upon IOWRITE requests, or busdriver to tristate the microcontroller output to the bus upon IOREAD requests). The 72 MHz Blue Pill is fast enough to respond to and manage IO requests and the databus via ISRs (Interupt Service Routines). It was tedious to get the timing of the ISRs right (done by inserting ``__asm__("nop")`` at the right spots), but it works flawlessly by now.
+the databus upon IOWRITE requests, or busdriver to tristate the microcontroller output to the bus upon IOREAD requests). The 72 MHz Blue Pill is fast enough to respond to and manage IO requests and the databus via ISRs (Interrupt Service Routines). It was tedious to get the timing of the ISRs right (done by inserting ``__asm__("nop")`` at the right spots), but it works flawlessly by now.
 - No extra circuitry for Z80 /WAIT management 
 - Low cost 
 - Very DIY friendly (no SMD, plug and play of standard modules)
@@ -93,10 +93,10 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   Gross](https://youtu.be/c94lG-UYBnE) demonstrates the [Ultimate MIDI
   Board with his 6128
   Plus](https://www.youtube.com/watch?v=XsebWLakPO8), demonstrating
-  that the card is working fine with his 6126 Plus. A previous
+  that the card is working fine with his 6128 Plus. A previous
   customer had reported that the card wouldn't work with his Plus -
   this report was the reason why I listed the CPC Plus range as
-  officially unsupported by the card. So, as always: your milage may
+  officially unsupported by the card. So, as always: your mileage may
   vary - I personally don't see a reason why the card wouldn't work
   with the Plus. But it may not always be so straight-forward with 40
   year old hardware. Here is the [proof that the Ultimate MIDI Card has
@@ -180,11 +180,11 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 - 6/1/2021: The project was featured by Matrixsynth. 
 
-  ![Maxrix 1](pics/matrixsynth1.png)
+  ![Matrixsynth 1](pics/matrixsynth1.png)
 
-  ![Maxrix 2](pics/matrixsynth3.png)
+  ![Matrixsynth 2](pics/matrixsynth3.png)
 
-  ![Maxrix 3](pics/matrixsynth3.png)
+  ![Matrixsynth 3](pics/matrixsynth3.png)
 
 ## YouTube Demos
 
@@ -299,10 +299,10 @@ Python-based `.MID` to `BIN` converter.
 The song-fragments on [`cpc/PLAYBCK1.dsk`](cpc/PLAYBCK1.dsk) can be
 played with an unextended CPC 464. The `PLAYBACK.BAS` program require
 MAXAM assembler. The [`cpc/PLAYBCK2.dsk`](cpc/PLAYBCK2.dsk) contains
-complete MIDI songs, but requires a CPC 6128. Songs are now partioned
-into 16 KB fragments to support easy loading into the indiviual 16 KB
-memory seqments. The `PLAYBACK.BAS` program on this disk requires
-MAXAM assembler as well. Finally, ths disks
+complete MIDI songs, but requires a CPC 6128. Songs are now partitioned
+into 16 KB fragments to support easy loading into the individual 16 KB
+memory segments. The `PLAYBACK.BAS` program on this disk requires
+MAXAM assembler as well. Finally, these disks
 [`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
 [`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) require the standard DK'tronics
 512 KB memory expansion (or ToTO's XMem, Revaldhino's memory
@@ -388,7 +388,7 @@ with the `CPCTRAFO.BAS` MAXAM assembler program. Here, MIDI data can
 be transposed by 0, 1, 2 octaves on the fly. See
 [https://youtu.be/Th2IpnHSq80](https://youtu.be/Th2IpnHSq80).
 
-**Watchout for the following gotcha: if you have MIDI IN & MIDI OUT connected
+**Watch out for the following gotcha: if you have MIDI IN & MIDI OUT connected
 to the PC / Mac program that you are using to send data, make sure that
 you don't have a MIDI IN -> MIDI OUT Soft Thru enabled in the PC / Mac program!
 Because that'll result in an infinite MIDI feedback loop if you also have
@@ -423,26 +423,26 @@ CPC combo can do. **If the MIDI gets too complex, then the CPC might
 also crash.** This is caused by the BluePill. The CPC software
 generates `IOREAD / IOWRITE` requests on the Z80 bus, for reading and
 writing of MIDI data. The BluePill firmware handles these IO requests
-purely in software, using Interupt Request Handlers (ISRs). CPC IO
-requests hence cause interupts to the BluePill firmware program. At
-the same time, MIDI data also generates interupts. If there are too
-many interupts being generated from highly complex incoming MIDI data,
+purely in software, using Interrupt Request Handlers (ISRs). CPC IO
+requests hence cause interrupts to the BluePill firmware program. At
+the same time, MIDI data also generates interrupts. If there are too
+many interrupts being generated from highly complex incoming MIDI data,
 then the BluePill might not have enough processing speed to also serve
-the CPC-generated interupts in a timely fashion concurrently, hence
+the CPC-generated interrupts in a timely fashion concurrently, hence
 violating the Z80 IO port protocol, crashing the system.
 
 The songs on [`cpc/ULTMIDI2.dsk`](cpc/ULTMIDI2.dsk) and
-[`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) are at the absolut limit of what
+[`cpc/ULTMIDI3.dsk`](cpc/ULTMIDI3.dsk) are at the absolute limit of what
 can be recorded in REALTIME with the CPC & BluePill combo, and I had
 to record them with the CPC 464, as my 6128 was having timing issues
 here. It is possible that I will try to tweak the firmware a bit more
-at some point, but not much can be done to eleviate this problem, as
+at some point, but not much can be done to alleviate this problem, as
 the bandwidth / speed is simply not there in the BluePill (one would
 think 72 MHz are enough, but... it is at the limit). So, when trying
-to record this on your own, your "milage may vary". 
+to record this on your own, your "mileage may vary". 
 
 Note that this problem only occurs for ultra-complex polyphonic
-mult-track MIDI data realtime recording / streaming (i.e., a whole
+multi-track MIDI data realtime recording / streaming (i.e., a whole
 complex MIDI song is being recorded in realtime, not only a single
 MIDI instrument track as one would usually do in a standard MIDI
 sequencer application), and that the problem only occurs for
