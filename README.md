@@ -47,7 +47,7 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 - C4: **this is bridge wire, not a capacitor!** 
 - R1, R2: 2k 
 - R3: 4.7k
-- 8 position DIP switch
+- 8 position DIL switch
 - Line-out mini stereo socket
 - Push button
 - BluePill, Adafruit MIDI FeatherWing
@@ -305,7 +305,7 @@ memory segments. The `PLAYBACK.BAS` program on this disk requires
 MAXAM assembler as well. Finally, these disks
 [`cpc/PLAYBCK3.dsk`](cpc/PLAYBCK3.dsk) and
 [`cpc/PLAYBCK4.dsk`](cpc/PLAYBCK4.dsk) require the standard DK'tronics
-512 KB memory expansion (or ToTO's XMem, Revaldhino's memory
+512 KB memory expansion (or ToTO's XMem, Revaldinho's memory
 expansion, etc.) The songs on these disks are rather large and split
 into up to 9 16 KB segments. In addition to the `PLAYBACK.BAS` MAXAM
 assembler program, there is also a binary version of the loader /
