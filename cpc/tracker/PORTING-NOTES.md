@@ -96,6 +96,13 @@ the lower ROM, which is paged out once the firmware call returns, so it
 reads RAM and yields zeros. `font.asm` is generated at build time from
 `OS_6128.ROM` at **&3900**.
 
+**But the position marker did.** TRACKER marks the play cursor and the
+song editor cursor with `#AA`, which on a TRS-80 is a graphics block that
+reads as a cursor. The CPC has an entirely different set there and it came
+out as a 3/4 fraction. `#8F` is the CPC font's only solid block - and is
+what the machine's own BASIC cursor looks like - so `POSMARKSYM` is `#8F`
+on this side.
+
 **Note glyphs need no translation.** TRACKER stores a note as
 `chr(midi_note + 97)`, landing in #7C..#C1. Those are arbitrary marks on
 the TRS-80 too, so the encoding ports verbatim.

@@ -97,7 +97,12 @@ dsk_buffer equ #9E00            ; AMSDOS scratch; unused in disc mode
 
 DISPMIDINOTEOFFSET equ #61      ; 0 -> 'a'
 
-POSMARKSYM equ  #aa
+;; The position marker, used for the song editor's cursor and for the play
+;; cursor on the ruler. On a TRS-80 #AA is a graphics block that reads as a
+;; cursor; the CPC has a completely different set there and it comes out as
+;; a 3/4 fraction. #8F is the CPC's only solid block - and is what its own
+;; BASIC cursor looks like, so it is the idiomatic choice here.
+POSMARKSYM equ  #8F
 SETSYM  equ     #8f
 CURSYM  equ     'X'
 
