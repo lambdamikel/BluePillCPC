@@ -36,6 +36,7 @@ arrangement instead of the one pattern. `H` is the help page.
 | 12 bar blues shuffle, 140 BPM | `dsk/tracker-boogie.dsk` | `hfe/tracker-boogie.hfe` |
 | Berlin school 16th note sequence, 120 BPM | `dsk/tracker-sequence.dsk` | `hfe/tracker-sequence.hfe` |
 | six voice drum machine, 125 BPM | `dsk/tracker-drums.dsk` | `hfe/tracker-drums.hfe` |
+| Berlin school, Tangerine Dream style, D minor, 116 BPM | `dsk/tracker-aurora.dsk` | `hfe/tracker-aurora.hfe` |
 
 `Q` quits by resetting the machine - TRACKER loads over BASIC's program
 area, so there is nothing left to return to.
