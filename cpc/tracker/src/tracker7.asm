@@ -1,4 +1,4 @@
-;; TRACKER Version 2.00
+;; TRACKER Version 2.10
 ;; to do:
 ;; - mute tracks
 ;; - record NOTE OFF messages, too? (new mode with GATE = *)
@@ -179,7 +179,7 @@ savem:  ascii	'**** SAVE STATE - OVERWRITE EXISTING CORE DUMP FILE? Y/N: _ ****'
 
 loadm:  ascii	'***** LOAD STATE - LOAD CORE DUMP FILE INTO MEMORY? Y/N: _ *****'
 
-waitt:	ascii   '***** MIDI/80 TRACKER V2.00 - (C)2026 LAMBDAMIKEL + CLAUDE *****'
+waitt:	ascii   '***** MIDI/80 TRACKER V2.10 - (C)2026 LAMBDAMIKEL + CLAUDE *****'
 	ascii   'PAT:A SF | TRACK:1 BPM:---  | B:8 S:04 | C:0 I:01 N:24 V:7F G:04'
 	ascii	'WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT'
 	ascii	'WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT'
@@ -196,7 +196,7 @@ waitt:	ascii   '***** MIDI/80 TRACKER V2.00 - (C)2026 LAMBDAMIKEL + CLAUDE *****
 	ascii	'WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT'
 	ascii	'WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT WAIT'
 	
-title:	ascii   '***** MIDI/80 TRACKER V2.00 - (C)2026 LAMBDAMIKEL + CLAUDE *****'
+title:	ascii   '***** MIDI/80 TRACKER V2.10 - (C)2026 LAMBDAMIKEL + CLAUDE *****'
 	ascii   'PAT:A SF | TRACK:1 BPM:---  | B:8 S:04 | C:0 I:01 N:24 V:7F G:04'
 	ascii	'1===-===+===-===2===-===+===-===3===-===+===-===4===-===+===-===' 
 data:	ascii   '!...-...+...-...!...-...+...-...!...-...+...-...!...-...+...-...'

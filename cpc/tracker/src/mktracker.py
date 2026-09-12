@@ -53,7 +53,7 @@ def R(a, b, text):
 # ===================================================================== #
 R(None, 'main:', r'''
 ;; ===================================================================
-;; TRACKER/CPC  -  TRACKER V2.00 for the Ultimate MIDI Card, ported
+;; TRACKER/CPC  -  TRACKER V2.10 for the Ultimate MIDI Card, ported
 ;; from the TRS-80 MIDI/80 version to the Amstrad CPC 6128
 ;; (C)2026 LAMBDAMIKEL + CLAUDE.  Assembles with rasm.
 ;;
@@ -1027,8 +1027,8 @@ out = '\n'.join(lines)
 # MIDI Card, so the banner says so. The line is exactly 64 columns and has
 # to stay that way - it is a screen image, LDIRed straight into the buffer,
 # so a byte more or less would shift everything after it.
-TRSTITLE = "***** MIDI/80 TRACKER V2.00 - (C)2026 LAMBDAMIKEL + CLAUDE *****"
-CPCTITLE = "**** ULT.MIDI CARD TRACKER V2.00 (C)2026 LAMBDAMIKEL+CLAUDE ****"
+TRSTITLE = "***** MIDI/80 TRACKER V2.10 - (C)2026 LAMBDAMIKEL + CLAUDE *****"
+CPCTITLE = "**** ULT.MIDI CARD TRACKER V2.10 (C)2026 LAMBDAMIKEL+CLAUDE ****"
 assert len(CPCTITLE) == len(TRSTITLE) == 64
 
 # TRACKER's own screen images: the banner, the status line, the two rulers

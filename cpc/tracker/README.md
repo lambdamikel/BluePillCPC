@@ -3,7 +3,7 @@
 A six track MIDI step sequencer for the CPC 6128, driving the Ultimate
 MIDI Card.
 
-Ported from **TRACKER 2.00** for the
+Ported from **TRACKER 2.10** for the
 [MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI sound and
 interface card for the TRS-80 - which is itself the card the Ultimate MIDI
 Card grew out of, so this brings the software back the other way. The
@@ -45,7 +45,7 @@ area, so there is nothing left to return to.
 
 ### What you are looking at
 
-    **** ULT.MIDI CARD TRACKER V2.00 (C)2026 LAMBDAMIKEL+CLAUDE ****
+    **** ULT.MIDI CARD TRACKER V2.10 (C)2026 LAMBDAMIKEL+CLAUDE ****
     PAT:C SF | TRACK:1 BPM:140  | B:8 S:04 | C:0 I:21 N:24 V:70 G:02
     1===-===+===-===2===-===+===-===3===-===+===-===4===-===+===-===
     <track 1, bars 1-4>
