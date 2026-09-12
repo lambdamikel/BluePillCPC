@@ -506,13 +506,25 @@ midipoll1:
     or a
     ret z
 
-    ;; note byte?
-    cp 1
-    jr nz, velcheck
+    ;; midicount is the parser state, and it also remembers which kind of
+    ;; message is being read, so that no new variable is needed - the data
+    ;; segment is the song file, and a byte added here would move every
+    ;; offset in it, on both machines:
+    ;;
+    ;;   1  expecting the note of a NOTE ON     2  expecting its velocity
+    ;;   3  expecting the note of a NOTE OFF    4  expecting its velocity
+
+    cp 2
+    jr z, velcheck
+    cp 4
+    jr z, veloffcheck
+
+    ;; a note number: keep it and expect the velocity next
 
     ld a, b
     ld (curnote), a
-    ld a, 2
+    ld a, (midicount)
+    inc a                       ; 1 -> 2, 3 -> 4
     ld (midicount), a
 
     xor a
@@ -522,12 +534,62 @@ midipoll1:
 velcheck:
     ; use velocity from settings instead of MIDI message!
 
+    ;; Running status: after a complete message the next data byte begins
+    ;; another one of the same kind, so go back to expecting a note.
+
+    ld a, 1
+    ld (midicount), a
+
+    ;; Many keyboards send NOTE ON with velocity 0 in place of a NOTE OFF.
+    ;; Recording that as a note would put every key release in the grid.
+
+    ld a, b
+    or a
+    jr z, midirelease
+
     call gettrackvelocity
     ld (curvelocity), a
 
     ; signal message complete -> note / vel available
     ld a, 1
 
+    ret
+
+veloffcheck:
+
+    ld a, 3                     ; running status, still NOTE OFF
+    ld (midicount), a
+
+midirelease:
+
+    call releasenote
+
+    xor a
+    ret
+
+releasenote:
+
+    ;; Let go of the note the recording echo is holding. Only while
+    ;; recording: midipoll is the external clock listener too, and a stray
+    ;; NOTE OFF must not go out during playback.
+
+    ld a,(record)
+    or a
+    ret z
+
+    call gettrackchannel
+    add #80
+    call midiout
+
+    call short_delay
+    ld a,(curnote)
+    call midiout
+
+    call short_delay
+    xor a
+    call midiout
+
+    call short_delay
     ret
 
 midicommand:
@@ -541,7 +603,20 @@ midicommand:
     cp #90
     jr z, midinoteon
 
+    ;; note off?
+    cp #80
+    jr z, midinoteoff
+
     xor a
+    ret
+
+midinoteoff:
+
+    ld a, 3
+    ld (midicount), a
+
+    xor a
+
     ret
 
 midinoteon:

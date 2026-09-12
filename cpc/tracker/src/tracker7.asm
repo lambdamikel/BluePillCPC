@@ -1211,6 +1211,15 @@ midiin:
 	;;  byte available
 
 	in a,(8)
+
+	;; A system real time byte ($F8..$FF) may appear between the bytes of
+	;; another message. It must leave the parser - and the running status -
+	;; exactly as it found them, or a keyboard sending active sensing
+	;; every 300 ms would cut a note in half.
+
+	cp $f8
+	jr nc, midirealtime
+
 	bit 7,a
 	jr nz, midicommand
 	
@@ -1220,23 +1229,53 @@ midiin:
 	or a 
 	ret z
 
-	;; note byte?
-	cp 1
-	jr nz, velcheck
+	;; midicount is the parser state, and it also remembers which kind of
+	;; message is being read, so that no new variable is needed - the data
+	;; segment is the song file, and a byte added here would move every
+	;; offset in it:
+	;;
+	;;   1  expecting the note of a NOTE ON     2  expecting its velocity
+	;;   3  expecting the note of a NOTE OFF    4  expecting its velocity
+
+	cp 2
+	jr z, velcheck
+	cp 4
+	jr z, veloffcheck
+
+	;; a note number: keep it and expect the velocity next
 
 	ld a, b 
 	ld (curnote), a
-	ld a, 2 
+	ld a, (midicount)
+	inc a			; 1 -> 2, 3 -> 4
 	ld (midicount), a
 
 	ld a, 0 
 
 	ret
 
+midirealtime:
+
+	ld a, 0
+	ret
+
 velcheck:
 	; ld a, b			
 	; ld (curvelocity), a
 	; use velocity from settings instead of MIDI message!
+
+	;; Running status: after a complete message the next data byte begins
+	;; another one of the same kind, so go back to expecting a note.
+
+	ld a, 1
+	ld (midicount), a
+
+	;; Many keyboards send NOTE ON with velocity 0 in place of a NOTE OFF.
+	;; Recording that as a note would put every key release in the grid.
+
+	ld a, b
+	or a
+	jr z, midirelease
 
 	call gettrackvelocity
 	ld (curvelocity), a  
@@ -1245,6 +1284,18 @@ velcheck:
 	ld a, 1
 
 	ret 
+
+veloffcheck:
+
+	ld a, 3			; running status, still NOTE OFF
+	ld (midicount), a
+
+midirelease:
+
+	call releasenote
+
+	ld a, 0
+	ret
 
 midicommand:	 
 
@@ -1257,8 +1308,21 @@ midicommand:
 	cp $90 
 	jr z, midinoteon
 
+	;; note off? 
+	cp $80
+	jr z, midinoteoff
+
 	ld a, 0
 	ret 
+
+midinoteoff:
+
+	ld a, 3
+	ld (midicount), a
+
+	ld a, 0
+
+	ret
 
 midinoteon:	 
 
@@ -1269,6 +1333,31 @@ midinoteon:
 	ld a, 0
 	
 	ret	
+
+releasenote:
+
+	;; Let go of the note the recording echo is holding. Only while
+	;; recording: midiin is the external clock listener too, and a stray
+	;; NOTE OFF must not go out during playback.
+
+	ld a,(record)
+	or a
+	ret z
+
+	call gettrackchannel
+	add $80 
+	out (8),a
+
+	call short_delay
+	ld a,(curnote)
+	out (8),a
+
+	call short_delay
+	ld a,0
+	out (8),a
+
+	call short_delay
+	ret
 
 help:
 	call putpat
