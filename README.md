@@ -54,6 +54,19 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ## Latest News
 
+- 9/10/2026: **[The Ultimate Portable Amstrad CPC MIDI Music
+  Studio](https://youtu.be/H_3GKjOzZtQ)** - a CPC 464, the Ultimate MIDI
+  Card, a sound module and a small LCD monitor, all on one tray - the
+  whole studio is a single thing you can pick up and carry. TRACKER and
+  MIDORG run on it as they do on any other CPC. Now people can see me at
+  Starbucks with that, making music.
+
+- 9/10/2026: **[The Ultimate MIDI Tracker for the Amstrad
+  CPC](https://youtu.be/7At6-KXW80s)** - TRACKER on a real 464, start to
+  finish: the pattern editor, the song arranger, the demo songs, and the
+  card playing the six tracks. It needs the Ultimate MIDI Card and a 512
+  KB RAM expansion.
+
 - 9/10/2026: **[MIDORG, a two manual MIDI organ, plays the CPC keyboard
   through the card](cpc/tracker/MIDORG.md)** - the bottom two rows of the
   keyboard are the lower manual, the top two the upper, each on its own
@@ -187,6 +200,10 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
   ![Matrixsynth 3](pics/matrixsynth3.png)
 
 ## YouTube Demos
+
+[The Ultimate Portable Amstrad CPC MIDI Music Studio](https://youtu.be/H_3GKjOzZtQ)
+
+[The Ultimate MIDI Tracker for the Amstrad CPC](https://youtu.be/7At6-KXW80s)
 
 [X2GS Demo Video with the CPC 6128 by Manfred Gross](https://youtu.be/wRHtibjJEe4) 
 
