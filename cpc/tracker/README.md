@@ -114,6 +114,25 @@ the grid, quantised to the current grid resolution. Only channel 1 note-ons
 are recorded. `@` sets the track's drum note to the last note received,
 which is a quick way to pick a drum sound by playing it.
 
+**Record with a decaying sound, not an organ.** TRACKER reads note-ons
+from MIDI IN and ignores note-offs entirely - a note's length comes from
+the track's Gate Time, not from how long you held the key. While you
+record, what you play is echoed to MIDI OUT so you can hear it, but the
+note-off for a note is only sent when the *next* note arrives. The note
+you played last therefore keeps sounding until you play another one. With
+a piano, a guitar or anything else that decays by itself you will never
+notice; with an organ, strings or a pad it drones. Record with a decaying
+sound and set the instrument back afterwards.
+
+Playback is unaffected: there TRACKER generates the note-offs itself from
+the Gate Time setting, so nothing hangs.
+
+**Set your keyboard to send real note-offs.** Some keyboards send note-on
+with velocity 0 instead of a note-off. TRACKER has no special case for
+that, so it records the key *release* as a second note - every note you
+play lands twice. A keyboard that sends proper `&80` note-offs is filtered
+correctly and records cleanly.
+
 ### Chaining patterns into a song
 
 `/` and `?` step through the 26 patterns, `"` copies one to another, `=`
