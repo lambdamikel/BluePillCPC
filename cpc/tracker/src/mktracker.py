@@ -53,7 +53,7 @@ def R(a, b, text):
 # ===================================================================== #
 R(None, 'main:', r'''
 ;; ===================================================================
-;; TRACKER/CPC  -  TRACKER V2.00 for the Ultimate MIDI Card, ported
+;; TRACKER/CPC  -  TRACKER V2.10 for the Ultimate MIDI Card, ported
 ;; from the TRS-80 MIDI/80 version to the Amstrad CPC 6128
 ;; (C)2026 LAMBDAMIKEL + CLAUDE.  Assembles with rasm.
 ;;
@@ -324,6 +324,10 @@ listenextclock:
     ;; is the better fit anyway - the card is already there, and every
     ;; sequencer and drum machine in the world sends #F8.
 
+    ld a,(useextclock)
+    dec a
+    jr nz, listenextclockpar    ; 2 = the printer port, below
+
     call midipoll
     or a
     jr z, lec1
@@ -336,6 +340,29 @@ lec1:
     jp z, nostep
     ld (hl), 0
     jp nextstep
+
+listenextclockpar:
+
+    ;; The other way in, and the one the TRS-80 has always used: a TTL step
+    ;; pulse on the printer port. The CPC's Centronics data lines are write
+    ;; only, but BUSY is an input and it is readable - PPI port B, #F5xx,
+    ;; bit 6. Port B is a plain input register: one IN, none of the PSG
+    ;; register-select handshaking that makes reading the KEYBOARD costly.
+    ;; About 19 us all told, which is less than the midipoll it replaces.
+    ;;
+    ;; The clock box toggles once per step, so ANY edge is a step - exactly
+    ;; what tracker7.asm does with the Model I/III printer input.
+
+    push bc
+    ld bc,#F500
+    in a,(c)
+    pop bc
+    and %01000000
+    ld hl,lastextclockin1       ; spare: the TRS-80 source defines it, and
+    cp (hl)                     ; nothing in the CPC build used it until now
+    ld (hl),a
+    jp nz, nextstep
+    jp nostep
 
 ''')
 
@@ -459,6 +486,50 @@ nostep_scan3:
 
 ''')
 
+R('extclockstatus:', 'trackstatus:', r'''
+;; ---------------------------------------------------------------
+;; The ' key. On the TRS-80 this is a plain on/off toggle, because
+;; there is only one way in - the printer port. The CPC has two, so
+;; here it cycles: off -> MIDI clock in -> printer port -> off.
+;;
+;;   0  off              status column shows '|'
+;;   1  MIDI #F8 in      shows ' - the card's own MIDI IN
+;;   2  printer BUSY     shows P - an external clock box on #F5xx bit 6
+;; ---------------------------------------------------------------
+
+extclockstatus:
+    ld a,(useextclock)
+    inc a
+    cp 3
+    jr c, extclockset
+    xor a                       ; 3 wraps back to off
+extclockset:
+    ld (useextclock), a
+
+    or a
+    jr nz, showextclockstatus
+
+    ld hl,#3c00 + 64 + 9
+    ld a, 124                   ; '|', external clock off
+    ld (hl), a
+
+    jp cont
+
+showextclockstatus:
+    ld hl,#3c00 + 64 + 9
+    cp 2
+    jr z, showextclockpar
+    ld a, extclocks             ; MIDI clock in
+    ld (hl), a
+    jp cont
+
+showextclockpar:
+    ld a, 'P'                   ; printer port
+    ld (hl), a
+    jp cont
+
+''')
+
 R('midiin:', 'help:', r'''
 midipoll:
 
@@ -506,13 +577,25 @@ midipoll1:
     or a
     ret z
 
-    ;; note byte?
-    cp 1
-    jr nz, velcheck
+    ;; midicount is the parser state, and it also remembers which kind of
+    ;; message is being read, so that no new variable is needed - the data
+    ;; segment is the song file, and a byte added here would move every
+    ;; offset in it, on both machines:
+    ;;
+    ;;   1  expecting the note of a NOTE ON     2  expecting its velocity
+    ;;   3  expecting the note of a NOTE OFF    4  expecting its velocity
+
+    cp 2
+    jr z, velcheck
+    cp 4
+    jr z, veloffcheck
+
+    ;; a note number: keep it and expect the velocity next
 
     ld a, b
     ld (curnote), a
-    ld a, 2
+    ld a, (midicount)
+    inc a                       ; 1 -> 2, 3 -> 4
     ld (midicount), a
 
     xor a
@@ -522,12 +605,62 @@ midipoll1:
 velcheck:
     ; use velocity from settings instead of MIDI message!
 
+    ;; Running status: after a complete message the next data byte begins
+    ;; another one of the same kind, so go back to expecting a note.
+
+    ld a, 1
+    ld (midicount), a
+
+    ;; Many keyboards send NOTE ON with velocity 0 in place of a NOTE OFF.
+    ;; Recording that as a note would put every key release in the grid.
+
+    ld a, b
+    or a
+    jr z, midirelease
+
     call gettrackvelocity
     ld (curvelocity), a
 
     ; signal message complete -> note / vel available
     ld a, 1
 
+    ret
+
+veloffcheck:
+
+    ld a, 3                     ; running status, still NOTE OFF
+    ld (midicount), a
+
+midirelease:
+
+    call releasenote
+
+    xor a
+    ret
+
+releasenote:
+
+    ;; Let go of the note the recording echo is holding. Only while
+    ;; recording: midipoll is the external clock listener too, and a stray
+    ;; NOTE OFF must not go out during playback.
+
+    ld a,(record)
+    or a
+    ret z
+
+    call gettrackchannel
+    add #80
+    call midiout
+
+    call short_delay
+    ld a,(curnote)
+    call midiout
+
+    call short_delay
+    xor a
+    call midiout
+
+    call short_delay
     ret
 
 midicommand:
@@ -541,7 +674,20 @@ midicommand:
     cp #90
     jr z, midinoteon
 
+    ;; note off?
+    cp #80
+    jr z, midinoteoff
+
     xor a
+    ret
+
+midinoteoff:
+
+    ld a, 3
+    ld (midicount), a
+
+    xor a
+
     ret
 
 midinoteon:
@@ -719,6 +865,17 @@ clearextclockr:
     ld (extclktick), a
     ld a,MIDICLKPERSTEP
     ld (extclkdiv), a
+
+    ;; and take the printer port's current level as the starting point, or
+    ;; whatever it happens to be sitting at counts as an edge and steals a
+    ;; step the moment play starts
+
+    push bc
+    ld bc,#F500
+    in a,(c)
+    pop bc
+    and %01000000
+    ld (lastextclockin1), a
     ret
 
 ''')
@@ -957,8 +1114,8 @@ out = '\n'.join(lines)
 # MIDI Card, so the banner says so. The line is exactly 64 columns and has
 # to stay that way - it is a screen image, LDIRed straight into the buffer,
 # so a byte more or less would shift everything after it.
-TRSTITLE = "***** MIDI/80 TRACKER V2.00 - (C)2026 LAMBDAMIKEL + CLAUDE *****"
-CPCTITLE = "**** ULT.MIDI CARD TRACKER V2.00 (C)2026 LAMBDAMIKEL+CLAUDE ****"
+TRSTITLE = "***** MIDI/80 TRACKER V2.10 - (C)2026 LAMBDAMIKEL + CLAUDE *****"
+CPCTITLE = "**** ULT.MIDI CARD TRACKER V2.10 (C)2026 LAMBDAMIKEL+CLAUDE ****"
 assert len(CPCTITLE) == len(TRSTITLE) == 64
 
 # TRACKER's own screen images: the banner, the status line, the two rulers

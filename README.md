@@ -491,7 +491,7 @@ the demo disks; e.g., [`cpc/FORCE.dsk`](cpc/FORCE.dsk).
 ![TRACKER](pics/tracker-boogie.png)
 
 TRACKER turns the CPC and the Ultimate MIDI Card into a six track MIDI
-step sequencer. It is a port of **TRACKER 2.00** from
+step sequencer. It is a port of **TRACKER 2.10** from
 [MIDI/80](https://github.com/lambdamikel/MIDI-80), my MIDI sound and
 interface card for the TRS-80 - which is itself the card this one grew
 out of, so the software has come back the other way. The original, its
