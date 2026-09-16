@@ -156,12 +156,14 @@ plus MMC transport, `M` MMC only. In any of the clock modes the CPC sends
 A step pulse also appears on the Centronics data lines at `&EF00` for
 anything that wants a hardware clock.
 
-**Future feature: external clock on the printer port.** The TRS-80 version
-takes its external step pulse off the printer port rather than over MIDI,
-and the CPC could do the same. The seven Centronics *data* lines are
-output only, but the **BUSY line is an input and it is readable** - PPI
-port B, `&F5xx`, bit 6, Centronics pin 11. Measured on an emulated 6128
-over 2000 samples, port B reads `1E` with only bit 0 (VSYNC) changing:
+**External clock from the printer port.** `'` cycles the external clock
+source: off, MIDI, printer port. The TRS-80 has always taken its step pulse
+off the printer port, and the CPC can now do the same. The seven Centronics
+*data* lines are output only, but the **BUSY line is an input and it is
+readable** - PPI port B, `&F5xx`, bit 6, and port B is a plain input
+register, so it costs one `in a,(c)` and none of the PSG register-select
+handshaking that makes reading the *keyboard* expensive. About 19 µs, less
+than the MIDI poll it replaces.
 
 | bit | | |
 |---|---|---|
@@ -169,11 +171,23 @@ over 2000 samples, port B reads `1E` with only bit 0 (VSYNC) changing:
 | 1-3 | manufacturer | `111`, Amstrad |
 | 4 | refresh rate | `1`, 50 Hz |
 | 5 | cassette in | 0 |
-| **6** | **printer BUSY** | **readable - Centronics pin 11** |
+| **6** | **printer BUSY** | **the step clock comes in here** |
 | 7 | expansion `/EXP` | 0 |
 
-So the hardware is there; it is simply not wired up in the software yet.
-That would let one clock box drive both machines.
+Any edge is one step, exactly as on the TRS-80, so the same
+[clock box](https://github.com/lambdamikel/MIDI-80/tree/main/firmware/midiclock-uno)
+drives it: `D8` through a 220-470 Ω series resistor to BUSY, grounds
+common. TTL inputs draw almost no current, so **one box can clock a TRS-80
+and a CPC at once** - a second resistor from the same pin.
+
+The status column next to `BPM:` shows which source is live: `|` off, `'`
+MIDI, `P` printer port.
+
+> **Check the pin before you solder.** What has been measured is that *bit
+> 6 of PPI port B* is BUSY. Which physical pin that is on the CPC's
+> Centronics edge connector should be confirmed against the service manual
+> - a wrong pin is exactly the two-outputs-fighting case the series
+> resistor exists to survive.
 
 ### The help page
 
@@ -205,7 +219,7 @@ That would let one clock box drive both machines.
 | `,` `.` `N` `M` | tempo |
 | `B` `G` | bar count, grid resolution |
 | `#` `T` | record, cursor tracking |
-| `R` `'` | MIDI clock out, external clock in |
+| `R` `'` | MIDI clock out, external clock in: off / MIDI / printer port |
 | `H` `L` `S` `Q` | help, load, save, quit |
 
 The arrow keys and `COPY` are CPC additions; everything else is as it is
