@@ -594,6 +594,11 @@ R('quit:', 'nextbar:', r'''
 quit:
     call putpat
 
+    ;; silence anything still sounding before asking - the answer may be
+    ;; yes, and then there is nobody left to send the note offs
+
+    call midipanicr
+
     ld hl, quitm
     call yesnoprompt
     jp nz, cont
@@ -1036,11 +1041,17 @@ for lab in ("playnote1:", "stopnote1:"):
     out = out.replace(old, "\n" + lab + "\n\n\tpush hl\t\t\t; one more MIDI note event this step\n"
                             "\tld hl,noteevents\n\tinc (hl)\n\tpop hl\n", 1)
 
-old = """\tcall playnotes
+old = """\tld a,(status)
+\tor a
+\tcall nz, playnotes
+
 \tld de, PLAYNOTES_U
 \tcall midiclkadd"""
 assert old in out
-out = out.replace(old, """\tcall playnotes
+out = out.replace(old, """\tld a,(status)
+\tor a
+\tcall nz, playnotes
+
 \tld a,(noteevents)\t; charge the notes that actually went out
 \tld l,a
 \tld h,0

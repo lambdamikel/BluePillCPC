@@ -436,7 +436,15 @@ nextstep1:
 	call showplaycursor
 	ld de, CURSOR_U
 	call midiclkadd
-	call playnotes
+	;; nextnote may have reached the end of the song, which stops playback
+	;; and panics. Starting this step's notes after that would leave them
+	;; sounding forever - their note offs are scheduled by a playback that
+	;; is no longer running.
+
+	ld a,(status)
+	or a
+	call nz, playnotes
+
 	ld de, PLAYNOTES_U
 	call midiclkadd
 
@@ -1334,6 +1342,11 @@ save:
 	
 quit:
 	call putpat
+
+	;; silence anything still sounding before asking - the answer may be
+	;; yes, and then there is nobody left to send the note offs
+
+	call midipanicr
 
 	ld hl, quitm 
 	call yesnoprompt
