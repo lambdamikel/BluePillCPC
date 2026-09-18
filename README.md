@@ -54,6 +54,30 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ## Latest News
 
+- 18-9-2026: **[CPC Tab Composer 2.0 drives the card](https://github.com/lambdamikel/tab-composer-cpc#forty-years-later-the-1986-vision-in-z80)** -
+  my 1986 guitar tablature composer, the one on the Wikipedia page, has
+  been rewritten from Locomotive BASIC into Z80 assembler, and it now
+  plays through the Ultimate MIDI Card as well as through the AY. One key
+  switches between AY, MIDI, or both, another picks the General MIDI
+  instrument, and `+` and `-` step through the instruments while the music
+  is playing so you can find a sound by ear. A guitar tablature is the
+  easiest thing in the world to turn into MIDI - a note is the open string
+  plus the fret, and nothing else.
+
+  The other half of the rewrite is speed: the tablature now scrolls past
+  as the music plays, which is what I wanted the program for in 1986 when
+  I was using it to get through my guitar lessons. That needs the screen
+  written directly in Z80 - a page of the sheet took seconds in BASIC, and
+  you cannot follow music with that.
+
+  The card is optional there: without it the program plays through the
+  CPC's own sound chip exactly as before. [Everything is in the
+  tab-composer-cpc repo](https://github.com/lambdamikel/tab-composer-cpc) -
+  the program, the source, and disc images in DSK and HFE with eighteen
+  songs restored from my 1986 tapes.
+
+  ![CPC Tab Composer 2.0 playing BOUREE, with the MIDI output switch in the panel](pics/tabcomp-z80.png)
+
 - 9/10/2026: **New YouTube video: [The Ultimate Portable Amstrad CPC MIDI
   Music Studio](https://youtu.be/H_3GKjOzZtQ)** - a CPC 464 with
   everything built into it: a RAM expansion, a ROM board, a floppy
