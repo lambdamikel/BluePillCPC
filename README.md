@@ -54,6 +54,14 @@ the databus upon IOWRITE requests, or busdriver to tristate the microcontroller 
 
 ## Latest News
 
+- 18-9-2026: **New YouTube video: [CPC Tab Composer 2.0 playing through
+  the card](https://youtu.be/xJNXdqg9Txs)** - the Z80 rewrite of my 1986
+  tablature composer on the portable 464, with the Ultimate MIDI Card on
+  the expansion port. A song on the sheet, the tablature scrolling past as
+  it plays, and the card doing the sound.
+
+  [![CPC Tab Composer 2.0 running on the portable CPC 464](pics/video-tabcomp.jpg)](https://youtu.be/xJNXdqg9Txs)
+
 - 18-9-2026: **[CPC Tab Composer 2.0 drives the card](https://github.com/lambdamikel/tab-composer-cpc#forty-years-later-the-1986-vision-in-z80)** -
   my 1986 guitar tablature composer, the one on the Wikipedia page, has
   been rewritten from Locomotive BASIC into Z80 assembler, and it now
