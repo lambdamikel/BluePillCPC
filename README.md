@@ -1,6 +1,8 @@
 # BluePillCPC
 An Extension Board for the Amstrad CPC based on the Blue Pill Microcontroller
 
+#### Project Page: [www.michael-wessel.info/hardware.html](https://www.michael-wessel.info/hardware.html#bluepillcpc-the-ultimate-midi-card)
+
 **UNLIKE PREVIOUSLY REPORTED, THE BOARD ALSO [WORKS FLAWLESSLY ON THE CPC PLUS RANGE OF COMPUTERS!](https://youtu.be/XsebWLakPO8)** 
 
 It's a generic IO interface to the CPC, so use cases are generic.
